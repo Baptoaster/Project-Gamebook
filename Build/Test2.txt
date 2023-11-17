@@ -1,0 +1,5 @@
+{Chapter 2}
+[Scene 2]
+<I love play videogame. _Can I play?>
+~yes yes&
+~no&
