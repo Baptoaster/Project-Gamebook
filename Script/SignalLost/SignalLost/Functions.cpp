@@ -23,60 +23,141 @@ string File::Read(string path)
 	return content;
 }
 
-string File::GetFile(string path)
+void File::CreateFileLog(string path)
 {
-	// Read the file
-	string content = File::Read(path);
+	string paths = path;
 
-	return content;
+	int find = paths.find("Chapitre");
+
+	paths = paths.substr(0, find);
+
+	paths += "Log.text";
+	
+	cout << paths;
 }
 
-int functionDisplay(string content, int start, int scene)
+Interface::Interface(int chapter, int scene, int start, int numberChoices)
+{
+	this->chapter = chapter;
+	this->scene = scene;
+	this->start = start;
+	this->numberChoices = numberChoices;
+}
+
+int Interface::getNumberChoices()
+{
+	return this->numberChoices;
+}
+
+const int* Interface::getTabGoScene()
+{
+	return this->tabGoScene;
+}
+
+void Interface::setScene(string scene)
+{
+	this->scene = "[Scene " + scene;
+}
+
+void Interface::functionDisplay(string content)
 {
 	// Console color
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	// Speed of the scrolling
-	int speedLetters = 50000000;
+	int speedLetters = 40000000;
 
 	// Set in table of caracter the content
 	char* caracter = const_cast<char*>(content.c_str());
 
-	int index;
+	// Initialisation
+	int index = 0;
+	int indexTab[5];
+	int indexScene = 0;
+	int numberChoice = 1;
+	bool skip = false;
+	string defaultChoice = "";
 
-	//cout << start - 8 + content.find("Scene " + scene);
-
-	if (start > 0)
+	if (start > 1)
 	{
-		index = start - 8 + content.find("+");
+		// After
+		start = content.find(scene, start);
+		index = content.find("]", start);
 	}
 	else
 	{
-		index = start + content.find("+");
+		index = content.find("]");
 	}
 
 	for (int i = start; i < index; i++)
 	{
-		if (caracter[i] == '}' || caracter[i] == ']' || caracter[i] == '>' || caracter[i] == '&')
+		if (caracter[i] == '_')
 		{
-			cout << endl;
-			cout << endl;
-		}
-		else if (caracter[i] == '[' || caracter[i] == '{' || caracter[i] == '<' || caracter[i] == '~' || caracter[i] == '_')
-		{
+			caracter[i] = NULL;
 			cout << endl;
 		}
-		else if (caracter[i] == '*')
+		else if (caracter[i] == '%')
 		{
+			caracter[i] = NULL;
 			// Set color of console to green
 			SetConsoleTextAttribute(hConsole, 2);
 		}
+		else if (caracter[i] == '&')
+		{
+			caracter[i] = NULL;
+			// Set color of console to red
+			SetConsoleTextAttribute(hConsole, 4);
+		}
 		else if (caracter[i] == '=')
 		{
+			caracter[i] = NULL;
 			// Set color of console to white
 			SetConsoleTextAttribute(hConsole, 7);
 		}
+		else if (caracter[i] == '[' || caracter[i] == ']' || caracter[i] == '>' || caracter[i] == ')' || skip == true)
+		{
+			caracter[i] = NULL;
+			skip = false;
+		}
 		else if (caracter[i] == '+')
+		{
+			Sleep(600);
+		}
+		else if(caracter[i] == '(')
+		{
+			string sceneNumber = content.substr(i + 1, 1);
+			
+			string sceneNumber2 = content.substr(i + 2, 1);
+
+			if (sceneNumber2 != ")")
+			{
+				sceneNumber += sceneNumber2;
+			}
+
+			indexTab[indexScene] = stoi(sceneNumber);
+
+			indexScene += 1;
+			skip = true;
+		}
+		else if (caracter[i] == '<')
+		{
+			caracter[i] = NULL;
+			numberChoice += 1;
+		}
+		else if (caracter[i] == '^')
+		{
+			defaultChoice = content.substr(i + 2, 1);
+
+			string sceneNumber2 = content.substr(i + 3, 1);
+
+			if (sceneNumber2 != ")")
+			{
+				defaultChoice += sceneNumber2;
+			}
+
+			caracter[i] = NULL;
+		}
+		else if (caracter[i] == '$')
 		{
 			caracter[i] = NULL;
 		}
@@ -90,32 +171,108 @@ int functionDisplay(string content, int start, int scene)
 	}
 
 	start = index;
-	return start;
+	numberChoices = numberChoice;
+
+	for (int i = 0; i < indexScene; i++)
+	{
+		tabGoScene[i] = indexTab[i];
+	}
+	
+	if (defaultChoice != "")
+	{
+		int val = stoi(defaultChoice);
+		//Timer(val);
+	}
+
 }
 
-/* TEMP
-	int index = content.find("{");
-	int index2 = content.find("}");
+void Interface::InterfaceShow()
+{
+	cout << chapter << " " << scene << " " << start << " " << numberChoices << endl;
 
-	cout << content.substr(index+1,index2-index-1) << endl;
+	for (int i = 0; i < sizeof(tabGoScene) / sizeof(tabGoScene[0]); i++)
+	{
+		cout << tabGoScene[i] << endl;
+	}
+}
 
-	int index3 = content.find("[");
-	int index4 = content.find("]");
+void Interface::Timer(int val)
+{
+	int timer = 10;
 
-	cout << content.substr(index3 + 1, index4 - index3 - 1) << endl;
+	thread timerThread([&]()
+	{
+		while (timer > 0)
+		{
+			cout << timer << endl;
 
-	int index5 = content.find("<");
-	int index6 = content.find(">");
+			//Sleep(1000);
+			this_thread::sleep_for(chrono::seconds(1));
+			timer--;
 
-	cout << content.substr(index5 + 1, index6 - index5 - 1) << endl;
+		}
+		if (timer <= 0)
+		{
+			autos = true;
 
-	int index7 = content.find("~");
-	int index8 = content.find("&");
+			setScene(to_string(val));
 
-	cout << content.substr(index7 + 1, index8 - index7 - 1) << endl;
+			system("cls");
+		}
+	});
 
-	int index9 = content.find("~");
-	int index10 = content.find("&");
+	// Input chose
+	bool succed = false;
+	string input;
+	int valS;
 
-	cout << content.substr(index9 + 1, index10 - index9 - 1) << endl;
-	*/
+	while (succed == false && input != "Exit")
+	{
+
+		if (autos == true)
+		{
+			autos = false;
+			break;
+		}
+
+		// Input
+		input = "";
+		cin >> input;
+
+		// Verify integer
+		try
+		{
+			(void)stoi(input);
+
+			if (stoi(input) > 0 && stoi(input) <= getNumberChoices())
+			{
+				// Succed
+				succed = true;
+				valS = stoi(input);
+			}
+			else
+			{
+				cout << "Not a option !";
+			}
+		}
+		catch (const logic_error& e)
+		{
+			succed = false;
+		}
+	}
+
+	if (succed == true)
+	{
+		// Get Scene
+		valS = getTabGoScene()[valS - 1];
+
+		// Ajout Log
+		//file.CreateFileLog(path);
+
+		// Change Scene
+		setScene(to_string(valS));
+		system("cls");
+	}
+
+	timerThread.join();
+}
