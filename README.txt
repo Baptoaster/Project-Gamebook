@@ -9,13 +9,13 @@ HOW TO DOWNLOAD :
 - Go to the OneDrive link : https://oxymis-my.sharepoint.com/:f:/g/personal/b_perrin6_stu-bellecour_fr/EnXw8BFjch9PqmwB6KYiW50BfdXkxuAiKhc7WK-tGIUJ8A?e=i0eHe8
 - Go to Builds File
 - Download the Latest Version of the .exe program
-- Download the Chapter-1.txt to test the program
+- Download the "Chapter-1.txt" to test the program
 
 HOW TO EXECUTE :
-- Double-click on the .exe once downloaded
+- Drag the file "Chapter-1.txt" on the .exe once downloaded.
 
 HOW TO USE :
-The program only display's a text on the console for now.
+The program start the game.
 
 LICENSE : 
 Distributed under the MIT License
