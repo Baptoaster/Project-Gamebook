@@ -1,6 +1,24 @@
-#include "main.h"
+#include "Main.h"
 
-string File::Read(string path)
+string File::dateTime()
+{
+	// Get Date and Time
+	auto now = system_clock::now();
+
+	// Convert Time Point to a Time_t Object
+	time_t now_time_t = system_clock::to_time_t(now);
+
+	// Convert Time_t Object to a Local Time Struct
+	tm* local_time = localtime(&now_time_t);
+
+	// Format Date and Time
+	char buffer[80];
+	strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H-%M-%S", local_time);
+
+	return buffer;
+}
+
+string File::read(string path)
 {
 	// Initialisation
 	string contentLine;
@@ -14,7 +32,7 @@ string File::Read(string path)
 	// Read line by line
 	while (getline(infile, contentLine))
 	{
-		content += contentLine.c_str();
+		content += contentLine;
 	}
 
 	// Close the file
@@ -23,25 +41,103 @@ string File::Read(string path)
 	return content;
 }
 
-void File::CreateFileLog(string path)
+string File::createFileLog(string path, string val, int chapter, string scene)
 {
+	// Initialisation
+	ofstream outfile;
+
+	// Get Path
 	string paths = path;
 
-	int find = paths.find("Chapitre");
+	// Find Name File
+	int find = paths.find("Chapter-1");
 
+	// Remove Name
 	paths = paths.substr(0, find);
 
-	paths += "Log.text";
+	// Add Name Folder
+	paths += "Folder-Logs\\";
+
+	// Get Attributes
+	DWORD attributes = GetFileAttributesA(paths.c_str());
 	
-	cout << paths;
+	// Verify Folder Exist
+	if (!(attributes != INVALID_FILE_ATTRIBUTES && attributes & FILE_ATTRIBUTE_DIRECTORY))
+	{
+		// Create Folder
+		CreateDirectoryA(paths.c_str(), NULL);
+	}
+
+	// Add Name File
+	paths += "Log_" + dateTime() + ".txt";
+
+	// Open the file
+	outfile.open(paths, fstream::app);
+
+	// Put Text
+	outfile << "Chapter " << chapter << " : " << "Scene " << scene << " : " << "Choice " << val << "\n";
+
+	// Close the file
+	outfile.close();
+
+	return paths;
 }
 
-Interface::Interface(int chapter, int scene, int start, int numberChoices)
+void File::addFileLog(string pathLog, string val, int chapter, string scene)
 {
+	// Initialisation
+	ofstream outfile;
+
+	// Open the file
+	outfile.open(pathLog, fstream::app);
+
+	// Put Text
+	outfile << "Chapter " << chapter << " : " << "Scene " << scene << " : " << "Choice " << val << "\n";
+
+	// Close the file
+	outfile.close();
+}
+
+void File::readFileError(string path, string name)
+{
+	// Get Path
+	string paths = path;
+
+	// Find Name File
+	int find = paths.find("Chapter-1");
+
+	// Remove Name
+	paths = paths.substr(0, find);
+
+	//  ---------- TO DO ----------
+
+	// Error No File
+	if (name == "NoFile")
+	{
+		// Add Name File
+		paths += "Folder-Errors\\NoFile.txt";
+	}
+	
+	cout << paths << endl;
+}
+
+Interface::Interface(int chapter, string scene, int start, int numberChoices)
+{
+	// Constructor
 	this->chapter = chapter;
 	this->scene = scene;
 	this->start = start;
 	this->numberChoices = numberChoices;
+}
+
+int Interface::getChapter()
+{
+	return this->chapter;
+}
+
+string Interface::getScene()
+{
+	return this->scene;
 }
 
 int Interface::getNumberChoices()
@@ -54,225 +150,235 @@ const int* Interface::getTabGoScene()
 	return this->tabGoScene;
 }
 
+int Interface::getValue()
+{
+	return this->value;
+}
+
+string Interface::getDefaultChoice()
+{
+	return this->defaultChoice;
+}
+
+bool Interface::getTimer()
+{
+	return this->timers;
+}
+
+int Interface::getTime()
+{
+	return this->time;
+}
+
 void Interface::setScene(string scene)
 {
-	this->scene = "[Scene " + scene;
+	this->scene = scene;
 }
 
 void Interface::functionDisplay(string content)
 {
-	// Console color
+	// Get Console
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	// Speed of the scrolling
-	int speedLetters = 40000000;
-
-	// Set in table of caracter the content
-	char* caracter = const_cast<char*>(content.c_str());
-
 	// Initialisation
+	int speedLetters = 30000000; // Nanoseconds
+	int pause = 600; // Miliseconds
 	int index = 0;
 	int indexTab[5];
 	int indexScene = 0;
-	int numberChoice = 1;
+	int numberChoice = 0;
 	bool skip = false;
-	string defaultChoice = "";
+	string defaultChoices = "";
+	numberChoices = 0;
+	value = 0;
+	defaultChoice = "";
+	timers = false;
 
-	if (start > 1)
-	{
-		// After
-		start = content.find(scene, start);
-		index = content.find("]", start);
-	}
-	else
-	{
-		index = content.find("]");
-	}
+	// Find Scene
+	start = content.find("[Scene " + scene);
+	index = content.find("]", start);
 
+	// Read Each Caracters
 	for (int i = start; i < index; i++)
 	{
-		if (caracter[i] == '_')
+		// Back to Line
+		if (content[i] == '_')
 		{
-			caracter[i] = NULL;
 			cout << endl;
 		}
-		else if (caracter[i] == '%')
+		// Good Choice
+		else if (content[i] == '%')
 		{
-			caracter[i] = NULL;
-			// Set color of console to green
+			/// Set Text Color Green
 			SetConsoleTextAttribute(hConsole, 2);
 		}
-		else if (caracter[i] == '&')
+		// Bad Choice
+		else if (content[i] == '&')
 		{
-			caracter[i] = NULL;
-			// Set color of console to red
+			// Set Text Color Red
 			SetConsoleTextAttribute(hConsole, 4);
 		}
-		else if (caracter[i] == '=')
+		// End of Text Color
+		else if (content[i] == '=')
 		{
-			caracter[i] = NULL;
-			// Set color of console to white
+			// Set Text Color White
 			SetConsoleTextAttribute(hConsole, 7);
 		}
-		else if (caracter[i] == '[' || caracter[i] == ']' || caracter[i] == '>' || caracter[i] == ')' || skip == true)
+		// Remove Caracter
+		else if (skip || content[i] == '[' || content[i] == ']' || content[i] == '>' || content[i] == ')' || content[i] == '$')
 		{
-			caracter[i] = NULL;
 			skip = false;
 		}
-		else if (caracter[i] == '+')
+		// Pause Between Text
+		else if (content[i] == '+')
 		{
-			Sleep(600);
+			// Wait
+			Sleep(pause);
 		}
-		else if(caracter[i] == '(')
+		// Scene of the Choice
+		else if(content[i] == '(')
 		{
+			// Get Scene
 			string sceneNumber = content.substr(i + 1, 1);
-			
 			string sceneNumber2 = content.substr(i + 2, 1);
 
+			// 2 digits
 			if (sceneNumber2 != ")")
 			{
 				sceneNumber += sceneNumber2;
 			}
 
+			// Add to Table of Choice
 			indexTab[indexScene] = stoi(sceneNumber);
 
+			// Add Index of The Table
 			indexScene += 1;
 			skip = true;
 		}
-		else if (caracter[i] == '<')
+		// Number of Choice
+		else if (content[i] == '<')
 		{
-			caracter[i] = NULL;
+			// Add Choice
 			numberChoice += 1;
 		}
-		else if (caracter[i] == '^')
+		// Scene Default Choice Timer
+		else if (content[i] == '^')
 		{
-			defaultChoice = content.substr(i + 2, 1);
-
+			// Get Scene
+			defaultChoices = content.substr(i + 2, 1);
 			string sceneNumber2 = content.substr(i + 3, 1);
 
+			// 2 digits
 			if (sceneNumber2 != ")")
 			{
-				defaultChoice += sceneNumber2;
+				defaultChoices += sceneNumber2;
 			}
 
-			caracter[i] = NULL;
+			// Set Default Choice
+			defaultChoice = content.substr(i + 4, 1);
+
+			// Offset
+			if (defaultChoice == ")")
+			{
+				defaultChoice = content.substr(i + 5, 1);
+			}
 		}
-		else if (caracter[i] == '$')
-		{
-			caracter[i] = NULL;
-		}
+		// Show Caracter
 		else
 		{
-			cout << caracter[i];
+			cout << content[i];
 		}
 
-		// Wait
+		// Wait Speed Letters
 		sleep_for(nanoseconds(speedLetters));
 	}
 
-	start = index;
+	// End of Read
 	numberChoices = numberChoice;
 
+	// Set the Choices in Table
 	for (int i = 0; i < indexScene; i++)
 	{
 		tabGoScene[i] = indexTab[i];
 	}
 	
-	if (defaultChoice != "")
+	// Set the Default Choice
+	if (defaultChoices != "")
 	{
-		int val = stoi(defaultChoice);
-		//Timer(val);
-	}
-
-}
-
-void Interface::InterfaceShow()
-{
-	cout << chapter << " " << scene << " " << start << " " << numberChoices << endl;
-
-	for (int i = 0; i < sizeof(tabGoScene) / sizeof(tabGoScene[0]); i++)
-	{
-		cout << tabGoScene[i] << endl;
+		value = stoi(defaultChoices);
+		timers = true;
 	}
 }
 
-void Interface::Timer(int val)
+void Interface::stopTimer()
 {
-	int timer = 10;
+	// Stop and Restart Timer Values
+	autos = true;
+	timers = false;
 
-	thread timerThread([&]()
+	time = 11;
+}
+
+bool Interface::timer()
+{
+	// Initialisation
+	string times;
+
+	// Decrementation
+	time -= 1;
+
+	// Show Timer Correctly
+	if (time < 10)
 	{
-		while (timer > 0)
-		{
-			cout << timer << endl;
+		times = "0" + to_string(time);
+	}
+	else
+	{
+		times = to_string(time);
+	}
 
-			//Sleep(1000);
-			this_thread::sleep_for(chrono::seconds(1));
-			timer--;
+	cout << "Timer : " << times << endl;
 
-		}
-		if (timer <= 0)
-		{
-			autos = true;
+	// End Timer
+	return time <= 0;
+}
 
-			setScene(to_string(val));
+COORD Interface::getPosCursor()
+{
+	// Get Cursor Pos
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+	COORD currentPosition = csbi.dwCursorPosition;
 
-			system("cls");
-		}
-	});
+	return currentPosition;
+}
 
-	// Input chose
-	bool succed = false;
+void Interface::posCursor(int posX, int posY)
+{
+	// Set Cursor Pos
+	COORD pos = { posX, posY };
+	HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(output, pos);
+}
+
+string getUserInput(bool& vals)
+{
+	// Initialisation
 	string input;
-	int valS;
 
-	while (succed == false && input != "Exit")
+	// Timer Runing
+	while (!vals)
 	{
-
-		if (autos == true)
+		// Key Pressed
+		if (_kbhit())
 		{
-			autos = false;
+			// Get Input
+			char ch = _getch();
+			input = ch;
+
 			break;
 		}
-
-		// Input
-		input = "";
-		cin >> input;
-
-		// Verify integer
-		try
-		{
-			(void)stoi(input);
-
-			if (stoi(input) > 0 && stoi(input) <= getNumberChoices())
-			{
-				// Succed
-				succed = true;
-				valS = stoi(input);
-			}
-			else
-			{
-				cout << "Not a option !";
-			}
-		}
-		catch (const logic_error& e)
-		{
-			succed = false;
-		}
 	}
 
-	if (succed == true)
-	{
-		// Get Scene
-		valS = getTabGoScene()[valS - 1];
-
-		// Ajout Log
-		//file.CreateFileLog(path);
-
-		// Change Scene
-		setScene(to_string(valS));
-		system("cls");
-	}
-
-	timerThread.join();
+	return input;
 }
