@@ -1,29 +1,30 @@
-[Chapter 1__
-Scene 1__
+[Scene 1__
 *bip* *bip* *bip*+__
 
 {INCOMING CALL}+__
 
-<(3)1 - Answer__
-(2)2 - Hang up>__
+<(3)1 - Answer>__
+<^(2)2 - Hang up>$__
 ]
 
 [Scene 2__
 &End.=+__
+
+<(1)1 - Restart !>__
 ]
 
 [Scene 3__
 *click*+__
 SHKRRRRRRRRR... H-hello ? Is someone the-SHKRRRRRRRRRRRRRRR... How does this thing wor-SHKRRRRRRRRRR... You hear m-SHKRRRRRRRRRRR... Hello ?+__
 
-<^(4)1 - Hello ?>$__
+<(4)1 - Hello ?>__
 ]
 
 [Scene 4__
 SHKRRRRRR-MY GOD ! I’ve been stuck here-SHKRRRRRRRRRRRR-days, it feels so good to hear someone’s voice... SHKRRRRRRRRRRRRRRRR-any idea what’s going on ? Who are y-SHKRRRRRRRRRRRRRRRR-am I here ?+__
 
-<(6)1 - What ? I can’t understand a thing...__
-(5)2 - Who are you ?>__
+<(6)1 - What ? I can’t understand a thing...>__
+<(5)2 - Who are you ?>__
 ]
 
 [Scene 5__
@@ -56,4 +57,6 @@ I-I don’t know... I think so. I’ve been stuck on this island for 2 days... o
 [Scene 9__
 I’m on a weird island. There’s an abandonned city in here.=+__
 %End.=__
+
+<(1)1 - Restart !>__
 ]
