@@ -38,7 +38,7 @@ private:
 	int value;
 	string defaultChoice;
 	bool timers;
-	int time = 61;
+	int time = 60;
 
 public:
 	bool autos;
@@ -51,6 +51,7 @@ public:
 	string getDefaultChoice();
 	bool getTimer();
 	int getTime();
+	void setTime();
 	void setScene(string scene);
 	void functionDisplay(string content);
 	void stopTimer();
@@ -59,4 +60,4 @@ public:
 	void posCursor(int posX, int posY);
 };
 
-string getUserInput(bool& vals);
+string getUserInput(bool& vals, Interface& interfaces);

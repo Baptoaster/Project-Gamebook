@@ -36,6 +36,12 @@ int main(int argc, char* argv[])
 		// Show Interface
 		interfaces.functionDisplay(content);
 
+		// Key Pressed Before
+		while (_kbhit())
+		{
+			char temp = _getch();
+		}
+
 		// Show User Interraction
 		cout << "[Press your Choice]" << endl;
 
@@ -49,7 +55,7 @@ int main(int argc, char* argv[])
 				bool vals = false;
 
 				// Create Async Timer
-				future<string> future = async(launch::async, getUserInput, ref(vals));
+				future<string> future = async(launch::async, getUserInput, ref(vals), ref(interfaces));
 
 				// Timer Run
 				while (!vals)
@@ -65,7 +71,6 @@ int main(int argc, char* argv[])
 					{
 						// Set variable
 						time = true;
-						succed = true;
 						
 						// Get Input Function
 						input = future.get();
@@ -83,6 +88,9 @@ int main(int argc, char* argv[])
 
 						break;
 					}
+
+					// Decrement Time
+					interfaces.setTime();
 				}	
 			}
 			else

@@ -170,6 +170,11 @@ int Interface::getTime()
 	return this->time;
 }
 
+void Interface::setTime()
+{
+	this->time -= 1;
+}
+
 void Interface::setScene(string scene)
 {
 	this->scene = scene;
@@ -316,16 +321,13 @@ void Interface::stopTimer()
 	autos = true;
 	timers = false;
 
-	time = 11;
+	time = 60;
 }
 
 bool Interface::timer()
 {
 	// Initialisation
 	string times;
-
-	// Decrementation
-	time -= 1;
 
 	// Show Timer Correctly
 	if (time < 10)
@@ -361,7 +363,7 @@ void Interface::posCursor(int posX, int posY)
 	SetConsoleCursorPosition(output, pos);
 }
 
-string getUserInput(bool& vals)
+string getUserInput(bool& vals, Interface& interfaces)
 {
 	// Initialisation
 	string input;
@@ -376,7 +378,23 @@ string getUserInput(bool& vals)
 			char ch = _getch();
 			input = ch;
 
-			break;
+			// Try Integer
+			try
+			{
+				// Verify Integer
+				(void)stoi(input);
+
+				// Verify Choice Possible
+				if (stoi(input) > 0 && stoi(input) <= interfaces.getNumberChoices())
+				{
+					// Succed
+					break;
+				}
+			}
+			// Fail
+			catch (const logic_error& e)
+			{
+			}	
 		}
 	}
 
