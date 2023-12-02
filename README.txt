@@ -12,7 +12,7 @@ HOW TO DOWNLOAD :
 - Download the Chapter-1.txt to test the program
 
 HOW TO EXECUTE :
-- Double-click on the .exe once downloaded
+- Drag the text file "Chapter-1" to the .exe to execute the program
 
 HOW TO USE :
 - Tap the number of the choice you want to make
@@ -25,3 +25,4 @@ CONTACTS :
 Baptiste PERRIN
 Personnal Mail - perrin.baptiste78@gmail.com
 Professional Mail - b_perrin6@stu-bellecour.fr
+
