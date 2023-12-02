@@ -16,7 +16,6 @@ HOW TO EXECUTE :
 
 HOW TO USE :
 - Tap the number of the choice you want to make
-- Press Enter to validate your choice
 - Watch out, some choices have a timer attached to it on the upper-right corner of the screen. If you do not make a choice in time, the game will choose a default answer for you.
 
 LICENSE : 
