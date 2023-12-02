@@ -9,13 +9,15 @@ HOW TO DOWNLOAD :
 - Go to the OneDrive link : https://oxymis-my.sharepoint.com/:f:/g/personal/b_perrin6_stu-bellecour_fr/EnXw8BFjch9PqmwB6KYiW50BfdXkxuAiKhc7WK-tGIUJ8A?e=i0eHe8
 - Go to Builds File
 - Download the Latest Version of the .exe program
-- Download the "Chapter-1.txt" to test the program
+- Download the Chapter-1.txt to test the program
 
 HOW TO EXECUTE :
-- Drag the file "Chapter-1.txt" on the .exe once downloaded.
+- Double-click on the .exe once downloaded
 
 HOW TO USE :
-The program start the game.
+- Tap the number of the choice you want to make
+- Press Enter to validate your choice
+- Watch out, some choices have a timer attached to it on the upper-right corner of the screen. If you do not make a choice in time, the game will choose a default answer for you.
 
 LICENSE : 
 Distributed under the MIT License
