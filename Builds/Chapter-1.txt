@@ -1,5 +1,5 @@
 [Scene 1__
-*bip* *bip* *bip*+__
+*bip* + *bip* + *bip*+__
 
 {INCOMING CALL}+__
 

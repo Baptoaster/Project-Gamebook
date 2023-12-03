@@ -70,6 +70,7 @@ int main(int argc, char* argv[])
 					if (vals)
 					{
 						// Set variable
+						succed = true;
 						time = true;
 						
 						// Get Input Function

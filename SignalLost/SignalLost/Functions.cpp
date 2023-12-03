@@ -288,6 +288,17 @@ void Interface::functionDisplay(string content)
 				defaultChoice = content.substr(i + 5, 1);
 			}
 		}
+		else if (content[i] == ';' || content[i] == '@' || content[i] == '/' || content[i] == '\\' || content[i] == '|' || content[i] == '#' || content[i] == '~')
+		{
+			cout << " Z ";
+			// / timer
+			// \ timer end
+			// # bip
+			// ~ bip fond
+			// @ + confiance
+			// || - confiance
+			// ; choix bloquer
+		}
 		// Show Caracter
 		else
 		{
@@ -329,6 +340,9 @@ bool Interface::timer()
 	// Initialisation
 	string times;
 
+	// Get Console
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 	// Show Timer Correctly
 	if (time < 10)
 	{
@@ -339,10 +353,32 @@ bool Interface::timer()
 		times = to_string(time);
 	}
 
+	// Verify Time
+	if (time <= 5)
+	{
+		// Set Text Color Red
+		SetConsoleTextAttribute(hConsole, 4);
+	}
+	else
+	{
+		// Set Text Color White
+		SetConsoleTextAttribute(hConsole, 7);
+	}
+
+	// Show Timer
 	cout << "Timer : " << times << endl;
 
-	// End Timer
-	return time <= 0;
+	// Set Text Color White
+	SetConsoleTextAttribute(hConsole, 7);
+
+	if (time <= 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 COORD Interface::getPosCursor()
