@@ -46,16 +46,49 @@ Fuck ! The signal’s blur-SHKRRRRRRRRR... There must be a way to-SHKRRRRRRRRRRR
 Oh thank god... It’s so nice to hear someone else’s voice. It’s been an eternity since I’ve talked to someone. Any longer and It would have driven me nuts.+__
 
 <(8)1 - Are you in danger ?>__
+<(9)2 - Where are you ?>__
+<(10)3 - Why did you call me ?>__
 ]
 
 [Scene 8__
 I-I don’t know... I think so. I’ve been stuck on this island for 2 days... or 3... I’ve lost perception of time... I’m the only one, there’s not a single soul here. I’ve been feeding myself with pre-made food cans I found in these buildings.+__
 
 <(9)1 - Where are you ?>__
+<(10)2 - Why did you call me ?>__
+<(11)3 - Enough questions... is that a prank call ?>__
 ]
 
 [Scene 9__
-I’m on a weird island. There’s an abandonned city in here.=+__
+I’ve no idea how I got here, the last few days of my life have been blurry as hell, I can’t even remember what day it is.+__
+
+I’m all alone on this weird island, I’ve been looking for someone for hours now, and all I was able to find is more ruins. This place is covered in those, it’s like an abandonned city.+__
+
+How can such a place even exist?+__
+
+It’s all just like a bad hangover.+__
+
+<(10)1 - Why did you call me ?>__
+<(8)2 - Are you in danger ?>__
+<(11)3 - Enough questions... is that a prank call ?>__
+]
+
+[Scene 10__
+I can’t even tell! I just found this old ass flip phone on one of the shelves in this supermarket! I just picked it up and there we are!+__
+ 
+Turns out you’re the only contact on this stupid piece of trash, and it just called automatically!+__
+
+<(8)1 - Are you in danger ?>__
+<(9)2 - Where are you ?>__
+<(11)3 - Enough questions... is that a prank call ?>__
+]
+
+[Scene 11__
+I swear to god it’s not!!!+__
+
+Listen, seems like you’re the only one I can rely on right now. You’re literally the first person I’ve talked to in the past few hours, or even days!+__
+
+You’re my only way to communicate with the outside world, it’s just a question of my own sanity at this point.+__
+
 %End.=__
 
 <(1)1 - Restart !>__
