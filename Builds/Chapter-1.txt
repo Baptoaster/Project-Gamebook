@@ -1,4 +1,4 @@
-[Scene 1__
+[Scene 1 ???__
 ~*bip* + *bip* + *bip*+__
 
 {INCOMING CALL}+__
@@ -8,13 +8,13 @@
 /15\
 ]
 
-[Scene 2__
+[Scene 2 ???__
 &End.#=+__
 
 <(1)1 - Restart !__
 ]
 
-[Scene 3__
+[Scene 3 ???__
 *click*+__
 SHKRRRRRRRRR... H-hello ? Is someone the-SHKRRRRRRRRRRRRRRR... How does this thing wor-SHKRRRRRRRRRR... You hear_
 m-SHKRRRRRRRRRRR... Hello ?+__
@@ -22,7 +22,7 @@ m-SHKRRRRRRRRRRR... Hello ?+__
 <(4)1 - Hello ?__
 ]
 
-[Scene 4__
+[Scene 4 ???__
 SHKRRRRRR-MY GOD ! I’ve been stuck here-SHKRRRRRRRRRRR-days, it feels so good to hear someone’s voice..._
 SHKRRRRRRRRRRRRRRRR-any idea what’s going on ? Who are y-SHKRRRRRRRRRRRRRRRR-am I here ?+__
 
@@ -30,14 +30,14 @@ SHKRRRRRRRRRRRRRRRR-any idea what’s going on ? Who are y-SHKRRRRRRRRRRRRRRRR-a
 <(5)2 - Who are you ?__
 ]
 
-[Scene 5__
+[Scene 5 ???__
 I’m-SHKRRRRRRRRR. I don’t know how-SHKRRRRRRRRR-can't get out... and you-SHKRRRRRRRRRRRR... Are-SHKRRRRRRRR-Still_
 here ?+__
 
 <(6)1 - Your signal’s horrible !__
 ]
 
-[Scene 6__
+[Scene 6 ???__
 Fuck ! The signal’s blur-SHKRRRRRRRRR... There must be a way to-SHKRRRRRRRRRRR... *snap*+__
 ...+__
 ...+__
@@ -46,7 +46,7 @@ Fuck ! The signal’s blur-SHKRRRRRRRRR... There must be a way to-SHKRRRRRRRRRRR
 <(7)1 - Yes__
 ]
 
-[Scene 7__
+[Scene 7 ???__
 Oh thank god... It’s so nice to hear someone else’s voice. It’s been an eternity since I’ve talked to someone. Any_
 longer and It would have driven me nuts.+__
 
@@ -55,7 +55,7 @@ longer and It would have driven me nuts.+__
 <(10)3 - Why did you call me ?__
 ]
 
-[Scene 8__
+[Scene 8 ???__
 I-I don’t know... I think so. I’ve been stuck on this island for 2 days... or 3... I’ve lost perception of time..._
 I’m the only one, there’s not a single soul here. I’ve been feeding myself with pre-made food cans I found in these_
 buildings.+__
@@ -65,7 +65,7 @@ buildings.+__
 <(11)3 - Enough questions... is that a prank call ?__
 ]
 
-[Scene 9__
+[Scene 9 ???__
 I’ve no idea how I got here, the last few days of my life have been blurry as hell, I can’t even remember what day_
 it is.+__
 
@@ -81,7 +81,7 @@ It’s all just like a bad hangover.+__
 <(11)3 - Enough questions... is that a prank call ?__
 ]
 
-[Scene 10__
+[Scene 10 ???__
 I can’t even tell ! I just found this old ass flip phone on one of the shelves in this supermarket ! I just picked_
 it up and there we are !+__
 
@@ -92,7 +92,7 @@ Turns out you’re the only contact on this stupid piece of trash, and it just c
 <(11)3 - Enough questions... is that a prank call ?__
 ]
 
-[Scene 11__
+[Scene 11 ???__
 I swear to god it’s not !!!+__
 
 Listen, seems like you’re the only one I can rely on right now. You’re literally the first person I’ve talked to in_
