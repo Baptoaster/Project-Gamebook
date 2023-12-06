@@ -2,16 +2,26 @@
 
 int main(int argc, char* argv[])
 {
-	// Path of the file
+	// Path of the Files
 	File file;
 	File& other = file;
+	string pathExe = argv[0];
 	string path = argv[1];
+	bool error = false;
 
 	// Initialisation
-	locale::global(locale("en_US.utf8"));
 	Interface interfaces(1, "1", 0, 0);
 	bool createLog = false;
 	string pathLog = "";
+	string content = "";
+
+	// Create Files Errors
+	file.createFileErrors(pathExe);
+
+	// Console Parameters
+	interfaces.setConsoleWindowPosition(300, 20);
+	interfaces.resizeConsole(120, 40);
+	interfaces.setConsoleFontSize(24);
 
 	// Hide Cursor
 	HWND consoleWindow = GetConsoleWindow();
@@ -21,175 +31,236 @@ int main(int argc, char* argv[])
 	cursorInfo.dwSize = 1;
 	SetConsoleCursorInfo(consoleHandle, &cursorInfo);
 
-	// Content of the file
-	string content = file.read(path);
+	// Disable Resize
+	LONG style = GetWindowLong(consoleWindow, GWL_STYLE);
+	style &= ~(WS_MAXIMIZEBOX | WS_SIZEBOX);
+	SetWindowLong(consoleWindow, GWL_STYLE, style);
 
-	// Chapter Read
-	while (1)
+	// Disable Mouse Paused
+	HANDLE hInput;
+	DWORD prev_mode;
+	hInput = GetStdHandle(STD_INPUT_HANDLE);
+	GetConsoleMode(hInput, &prev_mode);
+	SetConsoleMode(hInput, prev_mode & ENABLE_EXTENDED_FLAGS);
+
+	// Find Name File
+	int find = path.find(".txt");
+
+	// Verify File Name
+	if (find <= 0)
 	{
-		// Initialisation
-		bool succed = false;
-		string input = "";
-		int val = 0;
-		bool time = false;
+		// Error
+		error = true;
 
-		// Show Interface
-		interfaces.functionDisplay(content);
+		// Read File Error Bad File
+		file.readFileError(pathExe, "BadFile");
+		cout << "" << endl;
+		char temp = _getch();
+	}
 
-		// Key Pressed Before
-		while (_kbhit())
+	// No Error
+	if (error == false)
+	{
+		// Content File
+		content = file.read(path);
+
+		// Verify Not Null
+		if (content == "")
 		{
+			// Error
+			error = true;
+
+			// Read File Error File Empty
+			file.readFileError(pathExe, "FileEmpty");
+			cout << "" << endl;
 			char temp = _getch();
 		}
+	}
+	
+	// No Error
+	if(error == false)
+	{
+		// Show Interface
+		interfaces.show();
 
-		// Show User Interraction
-		cout << "[Press your Choice]" << endl;
-
-		// Input System
-		while (!succed)
+		// Chapter Read
+		while (1)
 		{
-			// Timer
-			if (interfaces.getTimer())
+			// Initialisation
+			bool succed = false;
+			string input = "";
+			int val = 0;
+			bool time = false;
+
+			// Chapter Scene 1
+			if (interfaces.getChapter() == 1 && interfaces.getScene() == "1")
 			{
-				// Initialisation
-				bool vals = false;
-
-				// Create Async Timer
-				future<string> future = async(launch::async, getUserInput, ref(vals), ref(interfaces));
-
-				// Timer Run
-				while (!vals)
-				{
-					// Cursor Pos
-					COORD pos = interfaces.getPosCursor();
-					interfaces.posCursor(90, 0);
-					vals = interfaces.timer();
-					interfaces.posCursor(pos.X, pos.Y);
-
-					// End Timer
-					if (vals)
-					{
-						// Set variable
-						succed = true;
-						time = true;
-						
-						// Get Input Function
-						input = future.get();
-
-						// Set Input Default Value
-						input = to_string(interfaces.getValue());
-
-						break;
-					}
-					// Input Before End Timer
-					else if (future.wait_for(chrono::seconds(1)) == future_status::ready)
-					{
-						// Get Input Function
-						input = future.get();
-
-						break;
-					}
-
-					// Decrement Time
-					interfaces.setTime();
-				}	
-			}
-			else
-			{
-				// Initialisation
-				input = "";
-
-				// Get Input
-				char ch = _getch();
-				input = ch;
+				interfaces.beepBackground = true;
 			}
 
-			// No Timer
-			if (!time)
-			{
-				// Try Integer
-				try
-				{
-					// Verify Integer
-					(void)stoi(input);
+			// Create Async Bip
+			future<void> futures = async(launch::async, test, ref(futures), ref(interfaces.beepBackground));
 
-					// Verify Choice Possible
-					if (stoi(input) > 0 && stoi(input) <= interfaces.getNumberChoices())
-					{
-						// Succed
-						succed = true;
-						val = stoi(input);
-					}
-				}
-				// Fail
-				catch (const logic_error& e)
-				{
-					succed = false;
-				}
+			// Show Interface
+			locale::global(locale("en_US.utf8"));
+			interfaces.posCursor(0, 7);
+			interfaces.functionDisplay(content);
+
+			// Key Pressed Before
+			while (_kbhit())
+			{
+				char temp = _getch();
 			}
-		}
 
-		// Succed
-		if (succed)
-		{
-			// Scene With Timer
-			if (time)
+			// Input System
+			while (!succed)
 			{
-				// Verify Exist
-				if (!createLog)
-				{
-					// Create File Log
-					string paths = file.createFileLog(path, interfaces.getDefaultChoice(), interfaces.getChapter(), interfaces.getScene());
-
-					createLog = true;
-					pathLog = paths;
-				}
-				else
-				{	
-					// Add to File Log
-					file.addFileLog(pathLog, interfaces.getDefaultChoice(), interfaces.getChapter(), interfaces.getScene());
-				}
-
-				// Stop Timer
-				if (interfaces.getTimer() == true)
-				{
-					interfaces.stopTimer();
-				}
-
-				// Change Scene
-				interfaces.setScene(input);
-				system("cls");
-			}
-			// Scene Without Timer
-			else
-			{
-				// Verify Exist
-				if (!createLog)
-				{
-					// Create File Log
-					string paths = file.createFileLog(path, input, interfaces.getChapter(), interfaces.getScene());
-
-					createLog = true;
-					pathLog = paths;
-				}
-				else
-				{
-					// Add to File Log
-					file.addFileLog(pathLog, input, interfaces.getChapter(), interfaces.getScene());
-				}
-
-				// Get Scene Choice
-				val = interfaces.getTabGoScene()[val - 1];
-
-				// Stop Timer
+				// Timer
 				if (interfaces.getTimer())
 				{
-					interfaces.stopTimer();
+					// Initialisation
+					bool vals = false;
+
+					// Create Async Timer
+					future<string> future = async(launch::async, getUserInput, ref(vals), ref(interfaces));
+
+					// Timer Run
+					while (!vals)
+					{
+						// Cursor Pos
+						COORD pos = interfaces.getPosCursor();
+						interfaces.posCursor(96, 2);
+						vals = interfaces.timer();
+
+						// End Timer
+						if (vals)
+						{
+							// Set variable
+							succed = true;
+							time = true;
+
+							// Get Input Function
+							input = future.get();
+
+							// Set Input Default Value
+							input = to_string(interfaces.getValue());
+
+							break;
+						}
+						// Input Before End Timer
+						else if (future.wait_for(chrono::seconds(1)) == future_status::ready)
+						{
+							// Get Input Function
+							input = future.get();
+
+							// Set Text Color White
+							SetConsoleTextAttribute(consoleHandle, 7);
+
+							break;
+						}
+
+						// Decrement Time
+						interfaces.setTime();
+					}
+				}
+				else
+				{
+					// Initialisation
+					input = "";
+
+					// Get Input
+					char ch = _getch();
+					input = ch;
 				}
 
-				// Change Scene
-				interfaces.setScene(to_string(val));
-				system("cls");
+				// No Timer
+				if (!time)
+				{
+					// Try Integer
+					try
+					{
+						// Verify Integer
+						(void)stoi(input);
+
+						// Verify Choice Possible
+						if (stoi(input) > 0 && stoi(input) <= interfaces.getNumberChoices())
+						{
+							// Succed
+							succed = true;
+							val = stoi(input);
+						}
+					}
+					// Fail
+					catch (const logic_error& e)
+					{
+						succed = false;
+					}
+				}
+			}
+
+			// Succed
+			if (succed)
+			{
+				// Scene With Timer
+				if (time)
+				{
+					// Verify Exist
+					if (!createLog)
+					{
+						// Create File Log
+						string paths = file.createFileLog(pathExe, interfaces.getDefaultChoice(), interfaces.getChapter(), interfaces.getScene());
+
+						createLog = true;
+						pathLog = paths;
+					}
+					else
+					{
+						// Add to File Log
+						file.addFileLog(pathLog, interfaces.getDefaultChoice(), interfaces.getChapter(), interfaces.getScene());
+					}
+
+					// Stop Timer
+					if (interfaces.getTimer() == true)
+					{
+						interfaces.stopTimer();
+					}
+
+					// Change Scene
+					interfaces.setScene(input);
+				}
+				// Scene Without Timer
+				else
+				{
+					// Verify Exist
+					if (!createLog)
+					{
+						// Create File Log
+						string paths = file.createFileLog(pathExe, input, interfaces.getChapter(), interfaces.getScene());
+
+						createLog = true;
+						pathLog = paths;
+					}
+					else
+					{
+						// Add to File Log
+						file.addFileLog(pathLog, input, interfaces.getChapter(), interfaces.getScene());
+					}
+
+					// Get Scene Choice
+					val = interfaces.getTabGoScene()[val - 1];
+
+					// Stop Timer
+					if (interfaces.getTimer())
+					{
+						interfaces.stopTimer();
+					}
+
+					// Change Scene
+					interfaces.setScene(to_string(val));
+				}
+
+				// Clear Interface
+				interfaces.clear();
 			}
 		}
 	}

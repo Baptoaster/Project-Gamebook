@@ -1,5 +1,7 @@
 #include "Main.h"
 
+
+
 string File::dateTime()
 {
 	// Get Date and Time
@@ -50,7 +52,7 @@ string File::createFileLog(string path, string val, int chapter, string scene)
 	string paths = path;
 
 	// Find Name File
-	int find = paths.find("Chapter-1");
+	int find = paths.find("SignalLost.exe");
 
 	// Remove Name
 	paths = paths.substr(0, find);
@@ -98,27 +100,139 @@ void File::addFileLog(string pathLog, string val, int chapter, string scene)
 	outfile.close();
 }
 
-void File::readFileError(string path, string name)
+void File::createFileErrors(string path)
 {
+	// Initialisation
+	ofstream outfile;
+
 	// Get Path
 	string paths = path;
 
 	// Find Name File
-	int find = paths.find("Chapter-1");
+	int find = paths.find("SignalLost.exe");
 
 	// Remove Name
 	paths = paths.substr(0, find);
 
-	//  ---------- TO DO ----------
+	// Add Name Folder
+	paths += "Folder-Errors\\";
 
-	// Error No File
-	if (name == "NoFile")
+	// Get Attributes
+	DWORD attributes = GetFileAttributesA(paths.c_str());
+
+	// Verify Folder Exist
+	if (!(attributes != INVALID_FILE_ATTRIBUTES && attributes & FILE_ATTRIBUTE_DIRECTORY))
 	{
-		// Add Name File
-		paths += "Folder-Errors\\NoFile.txt";
+		// Create Folder
+		CreateDirectoryA(paths.c_str(), NULL);
 	}
+
+	// Initialisation Files
+	string BadFile = "BadFile.txt";
+	string FileEmpty = "FileEmpty.txt";
+	string NoFile = "NoFile.txt";
+
+	// All Files Errors
+	for (int i = 0; i < 3; i++)
+	{
+		if (i == 0)
+		{
+			// Add Name File
+			paths += BadFile;
+
+			// Open the file
+			outfile.open(paths, fstream::out);
+
+			// Put Text
+			outfile << "Bad File";
+
+			// Close the file
+			outfile.close();
+
+			// Find Name File
+			int find = paths.find("BadFile.txt");
+
+			// Remove Name
+			paths = paths.substr(0, find);
+		}
+		else if (i == 1)
+		{
+			// Add Name File
+			paths += FileEmpty;
+
+			// Open the file
+			outfile.open(paths, fstream::out);
+
+			// Put Text
+			outfile << "File Empty";
+
+			// Close the file
+			outfile.close();
+
+			// Find Name File
+			int find = paths.find("FileEmpty.txt");
+
+			// Remove Name
+			paths = paths.substr(0, find);
+		}
+		else if (i == 2)
+		{
+			// Add Name File
+			paths += NoFile;
+
+			// Open the file
+			outfile.open(paths, fstream::out);
+
+			// Put Text
+			outfile << "No File";
+
+			// Close the file
+			outfile.close();
+
+			// Find Name File
+			int find = paths.find("NoFile.txt");
+
+			// Remove Name
+			paths = paths.substr(0, find);
+		}
+	}
+}
+
+void File::readFileError(string path, string name)
+{
+	// Initialisation
+	fstream infile;
+	string content;
+	string contentLine;
+
+	// Get Path
+	string paths = path;
+
+	// Find Name File
+	int find = paths.find("SignalLost.exe");
+
+	// Remove Name
+	paths = paths.substr(0, find);
+
+	// Add Name Folder
+	paths += "Folder-Errors\\";
+
+	// Add Name File
+	paths += name + ".txt";
+
+	// Open the file
+	infile.open(paths, fstream::in);
+
+	// Read line by line
+	while (getline(infile, contentLine))
+	{
+		content += contentLine;
+	}
+
+	// Close the file
+	infile.close();
 	
-	cout << paths << endl;
+	cout << content << endl;
 }
 
 Interface::Interface(int chapter, string scene, int start, int numberChoices)
@@ -180,19 +294,241 @@ void Interface::setScene(string scene)
 	this->scene = scene;
 }
 
+COORD Interface::getPosCursor()
+{
+	// Get Cursor Pos
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+	COORD currentPosition = csbi.dwCursorPosition;
+
+	return currentPosition;
+}
+
+void Interface::posCursor(int posX, int posY)
+{
+	// Set Cursor Pos
+	COORD pos = { posX, posY };
+	HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(output, pos);
+}
+
+void Interface::resizeConsole(int width, int height)
+{
+	// Get Console
+	HWND consoleWindow = GetConsoleWindow();
+
+	// Get Buffer Size
+	CONSOLE_SCREEN_BUFFER_INFO bufferInfo;
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &bufferInfo);
+
+	// Set Console Size
+	SMALL_RECT rect;
+	rect.Left = 0;
+	rect.Top = 0;
+	rect.Right = width - 1;
+	rect.Bottom = height - 1;
+
+	SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &rect);
+
+	// Set Console Buffer Size
+	COORD bufferSize;
+	bufferSize.X = width;
+	bufferSize.Y = height;
+
+	SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), bufferSize);
+}
+
+void Interface::setConsoleFontSize(int fontSize)
+{
+	// Get Console
+	HWND consoleWindow = GetConsoleWindow();
+
+	// Get Current Font
+	CONSOLE_FONT_INFOEX fontInfo;
+	fontInfo.cbSize = sizeof(fontInfo);
+	GetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &fontInfo);
+
+	// Set Font
+	fontInfo.dwFontSize.X = 0;
+	fontInfo.dwFontSize.Y = fontSize;
+
+	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &fontInfo);
+}
+
+void Interface::setConsoleWindowPosition(int x, int y)
+{
+	// Get Console
+	HWND consoleWindow = GetConsoleWindow();
+
+	// Set Position
+	SetWindowPos(consoleWindow, NULL, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+}
+
+void Interface::show()
+{
+	// Get Console
+	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	// Menu Barre Down
+	for (int i = 0; i < 120; i++)
+	{
+		posCursor(0 + i, 6);
+		cout << char(223);
+	}
+
+	// Menu Barre Left
+	for (int i = 0; i < 6; i++)
+	{
+		posCursor(15, 0 + i);
+		cout << char(219);
+	}
+
+	// Set Text Color Blue
+	SetConsoleTextAttribute(consoleHandle, 1);
+
+	// Connection Barre
+	for (int i = 0; i < 1; i++)
+	{
+		posCursor(2, 4 - i);
+		cout << char(219);
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		posCursor(5, 4 - i);
+		cout << char(219);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		posCursor(8, 4 - i);
+		cout << char(219);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		posCursor(11, 4 - i);
+		cout << char(219);
+	}
+
+	// Set Text Color Red
+	SetConsoleTextAttribute(consoleHandle, 7);
+
+	// Trust Bar Up
+	for (int i = 0; i < 36; i++)
+	{
+		posCursor(19 + i, 1);
+		if (i == 0)
+		{
+			cout << char(219);
+		}
+		else if (i == 35)
+		{
+			cout << char(219);
+		}
+		else
+		{
+			cout << char(223) << endl;
+		}
+	}
+
+	// Trust Bar Left
+	for (int i = 0; i < 2; i++)
+	{
+		posCursor(19, 2 + i);
+		cout << char(219) << endl;
+	}
+
+	// Trust Bar Right
+	for (int i = 0; i < 2; i++)
+	{
+		posCursor(54, 2 + i);
+		cout << char(219) << endl;
+	}
+
+	// Trust Bar Down
+	for (int i = 0; i < 36; i++)
+	{
+		posCursor(19 + i, 4);
+		if (i == 0)
+		{
+			cout << char(219);
+		}
+		else if (i == 35)
+		{
+			cout << char(219);
+		}
+		else
+		{
+			cout << char(220) << endl;
+		}
+	}
+
+	// Choice Barre Up
+	posCursor(11, 24);
+	for (int i = 0; i < 96; i++)
+	{
+		if (i == 0)
+		{
+			cout << char(219);
+		}
+		else if (i == 95)
+		{
+			cout << char(219);
+		}
+		else
+		{
+			cout << char(223);
+		}
+	}
+
+	// Choice Barre Left
+	for (int i = 0; i < 11; i++)
+	{
+		posCursor(11, 25 + i);
+		cout << char(219) << endl;
+	}
+
+	// Choice Barre Right
+	for (int i = 0; i < 11; i++)
+	{
+		posCursor(106, 25 + i);
+		cout << char(219) << endl;
+	}
+
+	// Choice Barre Down
+	posCursor(11, 36);
+	for (int i = 0; i < 96; i++)
+	{
+		if (i == 0)
+		{
+			cout << char(219);
+		}
+		else if (i == 95)
+		{
+			cout << char(219);
+		}
+		else
+		{
+			cout << char(220);
+		}
+	}
+}
+
 void Interface::functionDisplay(string content)
 {
 	// Get Console
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	// Initialisation
-	int speedLetters = 30000000; // Nanoseconds
+	int speedLetters = 25000000; // Nanoseconds
 	int pause = 600; // Miliseconds
 	int index = 0;
 	int indexTab[5];
 	int indexScene = 0;
 	int numberChoice = 0;
-	bool skip = false;
+	int skip = 0;
+	int space = 0;
 	string defaultChoices = "";
 	numberChoices = 0;
 	value = 0;
@@ -204,12 +540,17 @@ void Interface::functionDisplay(string content)
 	index = content.find("]", start);
 
 	// Read Each Caracters
-	for (int i = start; i < index; i++)
+	for (int i = start; i <= index; i++)
 	{
-		// Back to Line
-		if (content[i] == '_')
+		// Remove Caracter
+		if (skip > 0 || content[i] == '[' || content[i] == ']')
 		{
-			cout << endl;
+			skip -= 1;
+		}
+		// Back to Line
+		else if (content[i] == '_')
+		{
+			cout << endl << "  ";
 		}
 		// Good Choice
 		else if (content[i] == '%')
@@ -229,11 +570,6 @@ void Interface::functionDisplay(string content)
 			// Set Text Color White
 			SetConsoleTextAttribute(hConsole, 7);
 		}
-		// Remove Caracter
-		else if (skip || content[i] == '[' || content[i] == ']' || content[i] == '>' || content[i] == ')' || content[i] == '$')
-		{
-			skip = false;
-		}
 		// Pause Between Text
 		else if (content[i] == '+')
 		{
@@ -246,11 +582,13 @@ void Interface::functionDisplay(string content)
 			// Get Scene
 			string sceneNumber = content.substr(i + 1, 1);
 			string sceneNumber2 = content.substr(i + 2, 1);
+			skip = 2;
 
 			// 2 digits
 			if (sceneNumber2 != ")")
 			{
 				sceneNumber += sceneNumber2;
+				skip += 3;
 			}
 
 			// Add to Table of Choice
@@ -258,11 +596,17 @@ void Interface::functionDisplay(string content)
 
 			// Add Index of The Table
 			indexScene += 1;
-			skip = true;
 		}
 		// Number of Choice
 		else if (content[i] == '<')
 		{
+			// Stop Speed
+			speedLetters = 0;
+
+			// Choice Position
+			posCursor(15, 26 + space);
+			space += 2;
+
 			// Add Choice
 			numberChoice += 1;
 		}
@@ -288,16 +632,55 @@ void Interface::functionDisplay(string content)
 				defaultChoice = content.substr(i + 5, 1);
 			}
 		}
-		else if (content[i] == ';' || content[i] == '@' || content[i] == '/' || content[i] == '\\' || content[i] == '|' || content[i] == '#' || content[i] == '~')
+		// Timer Time
+		else if (content[i] == '/')
 		{
-			cout << " Z ";
-			// / timer
-			// \ timer end
-			// # bip
-			// ~ bip fond
-			// @ + confiance
-			// || - confiance
-			// ; choix bloquer
+			// Get Timer
+			string sceneTimer = content.substr(i + 1, 1);
+			string sceneTimer2 = content.substr(i + 2, 1);
+			skip = 2;
+
+			// 2 digits
+			if (sceneTimer2 != "\\")
+			{
+				sceneTimer += sceneTimer2;
+				skip += 3;
+			}
+
+			time = stoi(sceneTimer);
+		}
+		// Bip
+		else if (content[i] == '#')
+		{
+			// Beep Text
+			Beep(800, 300);
+		}
+		// Bip Background
+		else if (content[i] == '~')
+		{
+			// Beep Activate
+			beepBackground = true;
+		}
+		// Chapter Next
+		else if (content[i] == '$')
+		{
+
+		}
+		// Trust +
+		else if (content[i] == '@')
+		{
+
+		}
+		// Trust -
+		else if (content[i] == '|')
+		{
+
+		}
+		// TEMP
+		else if (content[i] == ';' || content[i] == '>')
+		{
+			// ; choix bloquer 3
+			// > choix bloquer 4
 		}
 		// Show Caracter
 		else
@@ -329,10 +712,7 @@ void Interface::functionDisplay(string content)
 void Interface::stopTimer()
 {
 	// Stop and Restart Timer Values
-	autos = true;
 	timers = false;
-
-	time = 15;
 }
 
 bool Interface::timer()
@@ -368,9 +748,13 @@ bool Interface::timer()
 	// Show Timer
 	cout << "Timer : " << times << endl;
 
+	// Beep Timer
+	Beep(500, 300);
+
 	// Set Text Color White
 	SetConsoleTextAttribute(hConsole, 7);
 
+	// Timer Finish
 	if (time <= 0)
 	{
 		return true;
@@ -381,22 +765,28 @@ bool Interface::timer()
 	}
 }
 
-COORD Interface::getPosCursor()
+void Interface::clear()
 {
-	// Get Cursor Pos
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-	COORD currentPosition = csbi.dwCursorPosition;
+	// Beep Desactivate
+	beepBackground = false;
 
-	return currentPosition;
-}
+	// Timer
+	posCursor(96, 2);
+	cout << "          " << endl;
 
-void Interface::posCursor(int posX, int posY)
-{
-	// Set Cursor Pos
-	COORD pos = { posX, posY };
-	HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleCursorPosition(output, pos);
+	// Scene Text
+	for (int i = 0; i < 17; i++)
+	{
+		posCursor(0, 7 + i);
+		cout << "                                                                                                                        " << endl;
+	}
+
+	// Choice Text
+	for (int i = 0; i < 11; i++)
+	{
+		posCursor(13, 25 + i);
+		cout << "                                                                                           " << endl;
+	}
 }
 
 string getUserInput(bool& vals, Interface& interfaces)
@@ -435,4 +825,72 @@ string getUserInput(bool& vals, Interface& interfaces)
 	}
 
 	return input;
+}
+
+void test(future<void>& futures, bool& test)
+{
+	// Beep Activate
+	if (test)
+	{
+		// Beep
+		Beep(800, 300);
+
+		// Beep
+		Beep(800, 300);
+
+		// Beep
+		Beep(800, 300);
+
+		// Wait 2 Seconds
+		while (futures.wait_for(chrono::seconds(0)) == future_status::timeout && test == true)
+		{
+			if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+			{
+				if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+				{
+					if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+					{
+						if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+						{
+							if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+							{
+								if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+								{
+									if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+									{
+										if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+										{
+											if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+											{
+												if (futures.wait_for(chrono::milliseconds(200)) == future_status::timeout && test == true)
+												{
+													if (test == true)
+													{
+														// Beep
+														Beep(800, 300);
+													}
+
+													if (test == true)
+													{
+														// Beep
+														Beep(800, 300);
+													}
+
+													if (test == true)
+													{
+														// Beep
+														Beep(800, 300);
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
