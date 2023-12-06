@@ -1,0 +1,106 @@
+[Scene 1 ???__
+~*bip* + *bip* + *bip*+__
+
+{INCOMING CALL}+__
+
+<(3)1 - Answer__
+<^(2)2 - Hang up__
+/15\
+]
+
+[Scene 2 ???__
+&End.#=+__
+
+<(1)1 - Restart !__
+]
+
+[Scene 3 ???__
+*click*+__
+SHKRRRRRRRRR... H-hello ? Is someone the-SHKRRRRRRRRRRRRRRR... How does this thing wor-SHKRRRRRRRRRR... You hear_
+m-SHKRRRRRRRRRRR... Hello ?+__
+
+<(4)1 - Hello ?__
+]
+
+[Scene 4 ???__
+SHKRRRRRR-MY GOD ! I’ve been stuck here-SHKRRRRRRRRRRR-days, it feels so good to hear someone’s voice..._
+SHKRRRRRRRRRRRRRRRR-any idea what’s going on ? Who are y-SHKRRRRRRRRRRRRRRRR-am I here ?+__
+
+<(6)1 - What ? I can’t understand a thing...__
+<(5)2 - Who are you ?__
+]
+
+[Scene 5 ???__
+I’m-SHKRRRRRRRRR. I don’t know how-SHKRRRRRRRRR-can't get out... and you-SHKRRRRRRRRRRRR... Are-SHKRRRRRRRR-Still_
+here ?+__
+
+<(6)1 - Your signal’s horrible !__
+]
+
+[Scene 6 ???__
+Fuck ! The signal’s blur-SHKRRRRRRRRR... There must be a way to-SHKRRRRRRRRRRR... *snap*+__
+...+__
+...+__
+... A-are you there ? Can you hear me better ?+__
+
+<(7)1 - Yes__
+]
+
+[Scene 7 ???__
+Oh thank god... It’s so nice to hear someone else’s voice. It’s been an eternity since I’ve talked to someone. Any_
+longer and It would have driven me nuts.+__
+
+<(8)1 - Are you in danger ?__
+<(9)2 - Where are you ?__
+<(10)3 - Why did you call me ?__
+]
+
+[Scene 8 ???__
+I-I don’t know... I think so. I’ve been stuck on this island for 2 days... or 3... I’ve lost perception of time..._
+I’m the only one, there’s not a single soul here. I’ve been feeding myself with pre-made food cans I found in these_
+buildings.+__
+
+<(9)1 - Where are you ?__
+<(10)2 - Why did you call me ?__
+<(11)3 - Enough questions... is that a prank call ?__
+]
+
+[Scene 9 ???__
+I’ve no idea how I got here, the last few days of my life have been blurry as hell, I can’t even remember what day_
+it is.+__
+
+I’m all alone on this weird island, I’ve been looking for someone for hours now, and all I was able to find is more_
+ruins. This place is covered in those, it’s like an abandonned city.+__
+
+How can such a place even exist ?+__
+
+It’s all just like a bad hangover.+__
+
+<(10)1 - Why did you call me ?__
+<(8)2 - Are you in danger ?__
+<(11)3 - Enough questions... is that a prank call ?__
+]
+
+[Scene 10 ???__
+I can’t even tell ! I just found this old ass flip phone on one of the shelves in this supermarket ! I just picked_
+it up and there we are !+__
+
+Turns out you’re the only contact on this stupid piece of trash, and it just called automatically !+__
+
+<(8)1 - Are you in danger ?__
+<(9)2 - Where are you ?__
+<(11)3 - Enough questions... is that a prank call ?__
+]
+
+[Scene 11 ???__
+I swear to god it’s not !!!+__
+
+Listen, seems like you’re the only one I can rely on right now. You’re literally the first person I’ve talked to in_
+the past few hours, or even days !+__
+
+You’re my only way to communicate with the outside world, it’s just a question of my own sanity at this point.+__
+
+%End.#=__
+
+<(1)1 - Restart !__
+]

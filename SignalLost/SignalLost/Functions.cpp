@@ -534,9 +534,16 @@ void Interface::functionDisplay(string content)
 	value = 0;
 	defaultChoice = "";
 	timers = false;
+	int supp = 9;
+	int temp = stoi(scene);
 
 	// Find Scene
-	start = content.find("[Scene " + scene);
+	if (temp > 9)
+	{
+		supp += 1;
+	}
+
+	start = content.find("[Scene " + scene) + supp;
 	index = content.find("]", start);
 
 	// Read Each Caracters
@@ -588,7 +595,7 @@ void Interface::functionDisplay(string content)
 			if (sceneNumber2 != ")")
 			{
 				sceneNumber += sceneNumber2;
-				skip += 3;
+				skip += 1;
 			}
 
 			// Add to Table of Choice
@@ -644,7 +651,7 @@ void Interface::functionDisplay(string content)
 			if (sceneTimer2 != "\\")
 			{
 				sceneTimer += sceneTimer2;
-				skip += 3;
+				skip += 1;
 			}
 
 			time = stoi(sceneTimer);
