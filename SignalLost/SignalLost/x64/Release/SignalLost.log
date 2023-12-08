@@ -1,18 +1,8 @@
 ﻿  Functions.cpp
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(55,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(112,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(153,13): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(173,13): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(193,13): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(212,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(310,16): warning C4838: la conversion de 'int' en 'SHORT' requiert une conversion restrictive
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(310,22): warning C4838: la conversion de 'int' en 'SHORT' requiert une conversion restrictive
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(546,42): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(547,22): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\k_furno\Documents\Projets\SignalLost\SignalLost\Functions.cpp(828,30): warning C4101: 'e' : variable locale non référencée
+C:\Users\kifur\Documents\Ecole\Bachelor\Travaux\Projets\Game-Book\SignalLost\SignalLost\Functions.cpp(756,14): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
   Génération de code en cours
-  2 of 1195 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  2 of 1215 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  SignalLost.vcxproj -> C:\Users\k_furno\Documents\Projets\SignalLost\x64\Release\SignalLost.exe
+  SignalLost.vcxproj -> C:\Users\kifur\Documents\Ecole\Bachelor\Travaux\Projets\Game-Book\SignalLost\x64\Release\SignalLost.exe

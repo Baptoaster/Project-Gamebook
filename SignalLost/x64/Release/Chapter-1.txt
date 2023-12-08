@@ -1,17 +1,18 @@
+Chapter-1
 [Scene 1 ???__
 ~*bip* + *bip* + *bip*+__
 
 {INCOMING CALL}+__
 
-<(3)1 - Answer__
-<^(2)2 - Hang up__
+<(3)1@ - Answer__
+<^(2)2| - Hang up__
 /15\
 ]
 
 [Scene 2 ???__
-&End.#=+__
+&Bad End.#=+__
 
-<(1)1 - Restart !__
+<$1 1 - Restart !__
 ]
 
 [Scene 3 ???__
@@ -100,7 +101,7 @@ the past few hours, or even days !+__
 
 You’re my only way to communicate with the outside world, it’s just a question of my own sanity at this point.+__
 
-%End.#=__
+%Good End.#=__
 
-<(1)1 - Restart !__
+<$1 1 - Restart !__
 ]
