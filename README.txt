@@ -17,6 +17,7 @@ HOW TO EXECUTE :
 HOW TO USE :
 - Tap the number of the choice you want to make
 - Watch out, some choices have a timer attached to it on the upper-right corner of the screen. If you do not make a choice in time, the game will choose a default answer for you.
+- Your choice can increase or decrease the trust bar on the upper-center. So try to keep it at full.
 
 LICENSE : 
 Distributed under the MIT License
