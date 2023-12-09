@@ -1,6 +1,6 @@
 #include "Main.h"
 
-Interface::Interface(string chapter, string scene, int start, int numberChoices, string defaultChoice, bool timers, int time, bool beepBackground, bool nextChapter, bool createLog, string pathLog, int trust)
+Interface::Interface(string chapter, string scene, int start, int numberChoices, string defaultChoice, bool timers, int time, bool beepBackground, bool noBeepSound, bool nextChapter, bool createLog, string pathLog, int trust)
 {
 	this->chapter = chapter;
 	this->scene = scene;
@@ -10,6 +10,7 @@ Interface::Interface(string chapter, string scene, int start, int numberChoices,
 	this->timers = timers;
 	this->time = time;
 	this->beepBackground = beepBackground;
+	this->noBeepSound = noBeepSound;
 	this->nextChapter = nextChapter;
 	this->createLog = createLog;
 	this->pathLog = pathLog;
@@ -418,81 +419,7 @@ void Interface::displayInterface()
 	// Set Text Color White
 	SetConsoleTextAttribute(consoleHandle, 7);
 
-	// Trust Number Pourcentage First
-	posCursor(59, 1);
-	cout << char(220) << char(220) << char(220) << char(220) << char(220) << endl;
-	posCursor(59, 2);
-	cout << char(219) << endl;
-	posCursor(59, 3);
-	cout << char(219) << char(220) << char(220) << char(220) << char(220) << endl;
-	posCursor(63, 4);
-	cout << char(219) << endl;
-	posCursor(59, 5);
-	cout << char(223) << char(223) << char(223) << char(223) << char(223) << endl;
-
-	// Trust Number Pourcentage Second
-	posCursor(67, 1);
-	cout << char(220) << char(220) << char(220) << endl;
-	posCursor(66, 2);
-	cout << char(219) << endl;
-	posCursor(70, 2);
-	cout << char(219) << endl;
-	posCursor(66, 3);
-	cout << char(219) << endl;
-	posCursor(70, 3);
-	cout << char(219) << endl;
-	posCursor(66, 4);
-	cout << char(219) << endl;
-	posCursor(70, 4);
-	cout << char(219) << endl;
-	posCursor(67, 5);
-	cout << char(223) << char(223) << char(223) << endl;
-
-	// Trust Pourcentage
-	posCursor(73, 1);
-	cout << char(220) << "  " << char(220) << endl;
-	posCursor(75, 2);
-	cout << char(220) << char(223) << endl;
-	posCursor(74, 3);
-	cout << char(220) << char(223) << endl;
-	posCursor(73, 4);
-	cout << char(220) << char(223) << endl;
-	posCursor(73, 5);
-	cout << char(223) << "  " << char(223) << endl;
-
-	/*
-	// Trust Number Pourcentage Third
-	posCursor(74, 1);
-	cout << char(220) << char(220) << char(220) << endl;
-	posCursor(73, 2);
-	cout << char(219) << endl;
-	posCursor(77, 2);
-	cout << char(219) << endl;
-	posCursor(73, 3);
-	cout << char(219) << endl;
-	posCursor(77, 3);
-	cout << char(219) << endl;
-	posCursor(73, 4);
-	cout << char(219) << endl;
-	posCursor(77, 4);
-	cout << char(219) << endl;
-	posCursor(74, 5);
-	cout << char(223) << char(223) << char(223) << endl;
-	*/
-
-	/*
-	// Trust Pourcentage 
-	posCursor(80, 1);
-	cout << char(220) << "  " << char(220) << endl;
-	posCursor(82, 2);
-	cout << char(220) << char(223) << endl;
-	posCursor(81, 3);
-	cout << char(220) << char(223) << endl;
-	posCursor(80, 4);
-	cout << char(220) << char(223) << endl;
-	posCursor(80, 5);
-	cout << char(223) << "  " << char(223) << endl;
-	*/
+	pourcentage();
 
 	// Choice Barre Up
 	posCursor(11, 24);
@@ -732,6 +659,7 @@ bool Interface::displayText(string content)
 		{
 			// Beep Activate
 			this->beepBackground = true;
+			this->noBeepSound = true;
 		}
 		// Pause Between Text
 		else if (content[i] == '+')
@@ -884,6 +812,8 @@ void Interface::trustBar(string val)
 	// Set Text Color White
 	SetConsoleTextAttribute(consoleHandle, 7);
 
+	pourcentage();
+
 	// Set Local UTF-8
 	locale::global(locale("en_US.utf8"));
 }
@@ -920,11 +850,11 @@ bool Interface::timer()
 	}
 
 	// Show Timer
-	posCursor(96, 3);
+	posCursor(100, 3);
 	cout << times << endl;
 
 	// Beep Timer
-	if (this->chapter != "1" || this->scene != "1")
+	if (!this->noBeepSound)
 	{
 		Beep(500, 300);
 	}
@@ -936,6 +866,7 @@ bool Interface::timer()
 	if (this->time <= 0)
 	{
 		result = true;
+		this->noBeepSound = false;
 	}
 
 	return result;
@@ -943,12 +874,12 @@ bool Interface::timer()
 
 void Interface::clear()
 {
-	// Beep Desactivate
-	this->beepBackground = false;
+	// Set Beep Sound
+	this->noBeepSound = false;
 
 	// Timer
-	posCursor(96, 3);
-	cout << "          " << endl;
+	posCursor(100, 3);
+	cout << "  " << endl;
 
 	// Scene Text
 	for (int i = 0; i < 16; i++)
@@ -966,6 +897,217 @@ void Interface::clear()
 
 	// Reset Position Cursor
 	posCursor(0, 0);
+}
+
+void Interface::pourcentage()
+{
+	int digit1 = 59;
+	int digit2 = 66;
+	int digit3 = 73;
+	int digit4 = 80;
+
+	if (this->trust == 0)
+	{
+		// Trust Number 0
+		posCursor(digit1, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit1, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+
+		// Trust Number 0
+		posCursor(digit2, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit2, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+
+		// Trust Number 0
+		posCursor(digit3, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit3, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+	}
+	else if (this->trust == 25)
+	{
+		// Trust Number 0
+		posCursor(digit1, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit1, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+
+		// Trust Number 2
+		posCursor(digit2, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit2, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 3);
+		cout << " " << " " << " " << char(219) << " " << endl;
+		posCursor(digit2, 4);
+		cout << " " << char(220) << char(223) << " " << " " << endl;
+		posCursor(digit2, 5);
+		cout << char(223) << char(223) << char(223) << char(223) << char(223) << endl;
+
+		// Trust Number 5
+		posCursor(digit3, 1);
+		cout << char(220) << char(220) << char(220) << char(220) << char(220) << endl;
+		posCursor(digit3, 2);
+		cout << char(219) << " " << " " << " " << " " << endl;
+		posCursor(digit3, 3);
+		cout << char(219) << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit3, 4);
+		cout << " " << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 5);
+		cout << char(223) << char(223) << char(223) << char(223) << " " << endl;
+	}
+	else if (this->trust == 50)
+	{
+		// Trust Number 0
+		posCursor(digit1, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit1, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+
+		// Trust Number 5
+		posCursor(digit2, 1);
+		cout << char(220) << char(220) << char(220) << char(220) << char(220) << endl;
+		posCursor(digit2, 2);
+		cout << char(219) << " " << " " << " " << " " << endl;
+		posCursor(digit2, 3);
+		cout << char(219) << char(220) << char(220) << char(220) << char(220) << endl;
+		posCursor(digit2, 4);
+		cout << " " << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 5);
+		cout << char(223) << char(223) << char(223) << char(223) << char(223) << endl;
+
+		// Trust Number 0
+		posCursor(digit3, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit3, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+	}
+	else if (this->trust == 75)
+	{
+		// Trust Number 0
+		posCursor(digit1, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit1, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit1, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+
+		// Trust Number 7
+		posCursor(digit2, 1);
+		cout << char(220) << char(220) << char(220) << char(220) << char(220) << endl;
+		posCursor(digit2, 2);
+		cout << " " << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 3);
+		cout << " " << " " << " " << char(219) << " " << endl;
+		posCursor(digit2, 4);
+		cout << " " << " " << char(219) << " " << " " << endl;
+		posCursor(digit2, 5);
+		cout << " " << " " << char(223) << " " << " " << endl;
+
+		// Trust Number 5
+		posCursor(digit3, 1);
+		cout << char(220) << char(220) << char(220) << char(220) << char(220) << endl;
+		posCursor(digit3, 2);
+		cout << char(219) << " " << " " << " " << " " << endl;
+		posCursor(digit3, 3);
+		cout << char(219) << char(220) << char(220) << char(220) << char(220) << endl;
+		posCursor(digit3, 4);
+		cout << " " << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 5);
+		cout << char(223) << char(223) << char(223) << char(223) << char(223) << endl;
+	}
+	else if (this->trust == 100)
+	{
+		// Trust Number 1
+		posCursor(digit1, 1);
+		cout << " " << " " << char(220) << " " << " " << endl;
+		posCursor(digit1, 2);
+		cout << char(220) << char(223) << char(219) << " " << " " << endl;
+		posCursor(digit1, 3);
+		cout << " " << " " << char(219) << " " << " " << endl;
+		posCursor(digit1, 4);
+		cout << " " << " " << char(219) << " " << " " << endl;
+		posCursor(digit1, 5);
+		cout << char(223) << char(223) << char(223) << char(223) << char(223) << endl;
+
+		// Trust Number 0
+		posCursor(digit2, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit2, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit2, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+
+		// Trust Number 0
+		posCursor(digit3, 1);
+		cout << " " << char(220) << char(220) << char(220) << " " << endl;
+		posCursor(digit3, 2);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 3);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 4);
+		cout << char(219) << " " << " " << " " << char(219) << endl;
+		posCursor(digit3, 5);
+		cout << " " << char(223) << char(223) << char(223) << " " << endl;
+	}
+
+	// Trust Pourcentage
+	posCursor(digit4, 1);
+	cout << char(220) << " " << " " << char(220) << endl;
+	posCursor(digit4, 2);
+	cout << " " << " " << char(220) << char(223) << endl;
+	posCursor(digit4, 3);
+	cout << " " << char(220) << char(223) << " " << endl;
+	posCursor(digit4, 4);
+	cout << char(220) << char(223) << " " << " " << endl;
+	posCursor(digit4, 5);
+	cout << char(223) << " " << " " << char(223) << endl;
 }
 
 string File::dateTime()

@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
 	// Class Initialisation
 	File file;
-	Interface interfaces("1", "1", 0, 0, "0", false, 0, false, false, false, "", 50);
+	Interface interfaces("1", "1", 0, 0, "0", false, 0, false, false, false, false, "", 50);
 
 	// Console Initialisation
 	interfaces.consoleInitialisation();
@@ -81,13 +81,6 @@ int main(int argc, char* argv[])
 					bool succed = false;
 					string input = "";
 					bool time = false;
-
-					// Chapter 1 Scene 1
-					if (interfaces.getChapter() == "1" && interfaces.getScene() == "1")
-					{
-						// Activate Beep
-						interfaces.setBeepBackground(true);
-					}
 
 					// Create Async Bip
 					future<void> futures = async(launch::async, BeepBackground, ref(futures), ref(interfaces));
@@ -264,6 +257,13 @@ int main(int argc, char* argv[])
 								// Trust
 								string val = interfaces.getTabTrust()[stoi(input) - 1];
 								interfaces.trustBar(val);
+							}
+
+							// BeepBackground Activate
+							if (interfaces.getBeepBackground())
+							{
+								// Beep Desactivate
+								interfaces.setBeepBackground(false);
 							}
 
 							// Clear Interface

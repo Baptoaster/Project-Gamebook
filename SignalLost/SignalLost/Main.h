@@ -39,13 +39,14 @@ private:
 	string defaultChoiceScene;
 	string defaultChoice;
 	bool timers;
+	bool noBeepSound;
 	int time;
 	bool beepBackground;
 	bool nextChapter;
 	int trust;
 
 public:
-	Interface(string chapter, string scene, int start, int numberChoices, string defaultChoice, bool timers, int time, bool beepBackground, bool nextChapter, bool createLog, string pathLog, int trust);
+	Interface(string chapter, string scene, int start, int numberChoices, string defaultChoice, bool timers, int time, bool beepBackground, bool noBeepSound, bool nextChapter, bool createLog, string pathLog, int trust);
 	bool getCreateLog();
 	string getPathLog();
 	string getChapter();
@@ -81,6 +82,7 @@ public:
 	void trustBar(string val);
 	bool timer();
 	void clear();
+	void pourcentage();
 };
 
 class File

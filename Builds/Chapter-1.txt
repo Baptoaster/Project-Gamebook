@@ -1,6 +1,6 @@
 Chapter-1
-[Scene 1 ???__
-~*bip* + *bip* + *bip*+__
+[Scene 1 ~???__
+*bip* + *bip* + *bip*+__
 
 {INCOMING CALL}+__
 
