@@ -162,7 +162,7 @@ bool Interface::error(Interface& interfaces, File& file, string path, string pat
 	string errorName = "";
 
 	// No Error
-	if (!error)
+	if (!error || path.find("NoChapterExist.txt"))
 	{
 		// Open File
 		infile.open(path, fstream::in);
@@ -182,7 +182,7 @@ bool Interface::error(Interface& interfaces, File& file, string path, string pat
 	}
 
 	// No Error
-	if (!error)
+	if (!error || path.find("BadFile.txt"))
 	{
 		// Find Name File
 		size_t find = path.find(".txt");
@@ -197,7 +197,7 @@ bool Interface::error(Interface& interfaces, File& file, string path, string pat
 	}
 
 	// No Error
-	if (!error)
+	if (!error || path.find("FileEmpty.txt"))
 	{
 		// Content File
 		string content = file.read(interfaces, path);
@@ -548,10 +548,12 @@ void Interface::displayInterface()
 	posCursor(0, 0);
 }
 
-void Interface::displayText(string content)
+bool Interface::displayText(string content)
 {
 	// Get Console
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	posCursor(0, 8);
 
 	// Initialisation
 	int speedLetters = 25000000; // Nanoseconds
@@ -576,7 +578,7 @@ void Interface::displayText(string content)
 	bool skipChapter = false;
 	bool skipTime = false;
 	size_t hide = 8;
-	int initial = 0;
+	size_t initial = 0;
 
 	for (int i = 0; i < size(this->tabGoScene); i++)
 	{
@@ -595,6 +597,13 @@ void Interface::displayText(string content)
 
 	// Hide Scene Number
 	hide += this->scene.length();
+
+	// Find Scene
+	size_t find = content.find("[Scene " + this->scene);
+	if(find == string::npos)
+	{
+		return true;
+	}
 
 	// Find Start / End
 	this->start = content.find("[Scene " + this->scene) + hide;
@@ -802,6 +811,8 @@ void Interface::displayText(string content)
 	{
 		this->timers = true;
 	}
+
+	return false;
 }
 
 void Interface::stopTimer()
@@ -910,7 +921,7 @@ bool Interface::timer()
 
 	// Show Timer
 	posCursor(96, 3);
-	cout << "Timer : " << times << endl;
+	cout << times << endl;
 
 	// Beep Timer
 	if (this->chapter != "1" || this->scene != "1")
@@ -1005,9 +1016,9 @@ void File::createFileErrors(string pathExe)
 	// Initialisation Files
 	string pathError = paths;
 
-	string nameFile[4] = { "BadFile.txt", "FileEmpty.txt", "NoFile.txt", "NoChapterExist.txt" };
-	string textFile[4] = { "Bad File", "File Empty", "No File Exist", "Chapter Doesn't Exist" };
-
+	string nameFile[5] = { "BadFile.txt", "FileEmpty.txt", "NoSceneExist.txt", "NoFile.txt", "NoChapterExist.txt" };
+	string textFile[5] = { "Bad File", "File Empty", "Scene Doesn't Exist", "No File Exist", "Chapter Doesn't Exist" };
+	
 	// All Files Errors
 	for (int i = 0; i < size(nameFile); i++)
 	{
@@ -1098,7 +1109,7 @@ void File::FileLog(string pathExe, string input, Interface& interfaces)
 
 		// Define File Log
 		interfaces.setCreateLog(true);
-		interfaces.setPathLog(pathExe);
+		interfaces.setPathLog(paths);
 	}
 	else
 	{

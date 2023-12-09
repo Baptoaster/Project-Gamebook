@@ -76,7 +76,7 @@ public:
 	void setConsoleFontSize(int fontSize);
 	void setConsoleWindowPosition(int x, int y);
 	void displayInterface();
-	void displayText(string content);
+	bool displayText(string content);
 	void stopTimer();
 	void trustBar(string val);
 	bool timer();
