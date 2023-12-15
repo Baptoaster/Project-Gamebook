@@ -21,10 +21,28 @@ int main(int argc, char* argv[])
 
 	// Class Initialisation
 	File file;
-	Interface interfaces("1", "1", 0, 0, "0", false, 0, false, false, false, false, "", 50);
+	Interface interfaces("1", "", "1", 0, 0, "0", false, 0, false, false, false, false, true, false, "", 50, true, true, 24);
 
 	// Console Initialisation
 	interfaces.consoleInitialisation();
+
+	// Paths Initialisation
+	string pathExe = argv[0];
+
+	// Get Name Console
+	string titleConsole = pathExe;
+
+	// Find Name
+	size_t find = titleConsole.find("SignalLost.exe");
+
+	// Take Name
+	titleConsole = titleConsole.substr(find);
+
+	// Set Name
+	interfaces.setTitleConsole(titleConsole);
+
+	// Create Files Errors
+	file.createFileErrors(interfaces, pathExe);
 
 	// No File
 	if (argv[1] == nullptr)
@@ -33,17 +51,13 @@ int main(int argc, char* argv[])
 		system("cls");
 
 		// Read File Error No File
-		file.readFileError(argv[0], "NoFile");
+		file.readFileError(interfaces, argv[0], "NoFile");
 		char temp = _getch();
 	}
 	else
-	{
+	{	
 		// Paths Initialisation
-		string pathExe = argv[0];
 		string path = argv[1];
-
-		// Create Files Errors
-		file.createFileErrors(pathExe);
 
 		// All Chapters
 		while (1)
@@ -51,9 +65,6 @@ int main(int argc, char* argv[])
 			// Initialisation
 			bool error = false;
 			string content = "";
-
-			// Reset Trust
-			interfaces.setTrust(50);
 
 			// Verify Error
 			error = interfaces.error(interfaces, file, path, pathExe);
@@ -63,6 +74,28 @@ int main(int argc, char* argv[])
 			{
 				// Read Chapter
 				string content = file.read(interfaces, path);
+
+				// Menu
+				if (interfaces.getShowMenu())
+				{
+					interfaces.setShowMenu(false);
+					interfaces.Menu();
+				}
+
+				// New Chapter Transition
+				if (interfaces.getNewChapter())
+				{
+					interfaces.setNewChapter(false);
+
+					// Clear Console
+					system("cls");
+
+					// Transition
+					interfaces.transition();
+
+					// Clear Console
+					system("cls");
+				}
 
 				// Set Local Default
 				locale::global(locale("C"));
@@ -95,8 +128,12 @@ int main(int argc, char* argv[])
 						system("cls");
 
 						// Read File Error No Scene Exist
-						file.readFileError(pathExe, "NoSceneExist");
+						file.readFileError(interfaces, pathExe, "NoSceneExist");
 						char temp = _getch();
+						if (temp == 133) 
+						{
+							continue;
+						}
 
 						break;
 					}
@@ -223,21 +260,50 @@ int main(int argc, char* argv[])
 									interfaces.stopTimer();
 								}
 
-								// Change Scene
-								interfaces.setScene("1");
+								// Quit Choice
+								if (interfaces.getTabGoChapter()[stoi(input) - 1] == "99")
+								{
+									// Quit
+									exit(0);
+								}
+								// Return Menu
+								else if (interfaces.getTabGoChapter()[stoi(input) - 1] == "00")
+								{
+									// Clear
+									system("cls");
 
-								// Change Chapter
-								interfaces.setChapter(interfaces.getTabGoChapter()[stoi(input) - 1]);
+									// Menu
+									interfaces.setShowMenu(true);
+									interfaces.setNewChapter(true);
+									interfaces.setScene("1");
+								}
+								else
+								{
+									// Change Scene
+									interfaces.setScene("1");
 
-								// Change Path
-								path = pathExe;
+									// Change Chapter
+									interfaces.setChapter(interfaces.getTabGoChapter()[stoi(input) - 1]);
 
-								// Find Name File
-								size_t find = path.find("SignalLost.exe");
+									// Change Path
+									path = pathExe;
 
-								// Remove Name
-								path = path.substr(0, find);
-								path += "Chapter-" + interfaces.getChapter() + ".txt";
+									// Find Name File
+									size_t find = path.find(interfaces.getTitleConsole());
+
+									// Remove Name
+									path = path.substr(0, find);
+									path += "Chapter-" + interfaces.getChapter() + ".txt";
+
+									// Trust
+									if (interfaces.getTabTrustNumber()[stoi(input) - 1] != "")
+									{
+										// Reset Trust
+										interfaces.setTrust(stoi(interfaces.getTabTrustNumber()[stoi(input) - 1]));
+									}
+
+									interfaces.setNewChapter(true);
+								}
 							}
 							// Scene Without Timer
 							else
@@ -251,8 +317,23 @@ int main(int argc, char* argv[])
 									interfaces.stopTimer();
 								}
 
-								// Change Scene
-								interfaces.setScene(interfaces.getTabGoScene()[stoi(input) - 1]);
+								// Trust Requirement 75
+								if (interfaces.getTabTrustRequirement()[stoi(input) - 1] == ">" && interfaces.getTrust() < 75)
+								{
+									// Change Scene
+									interfaces.setScene(interfaces.getTabTrustRequirementScene()[stoi(input) - 1]);
+								}
+								// Trust Requirement 50
+								else if (interfaces.getTabTrustRequirement()[stoi(input) - 1] == ";" && interfaces.getTrust() < 50)
+								{
+									// Change Scene
+									interfaces.setScene(interfaces.getTabTrustRequirementScene()[stoi(input) - 1]);
+								}
+								else
+								{
+									// Change Scene
+									interfaces.setScene(interfaces.getTabGoScene()[stoi(input) - 1]);
+								}
 
 								// Trust
 								string val = interfaces.getTabTrust()[stoi(input) - 1];

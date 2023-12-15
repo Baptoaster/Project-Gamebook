@@ -1,0 +1,368 @@
+Chapter-02(Factory...)/75\
+[Scene 1 ~\\???__
+*bip* + *bip* + *bip*+__
+
+{INCOMING CALL}+__
+
+<(2)1 - Pick up__
+<^(3)2 - Hang up__
+/15\
+]
+
+[Scene 2 \???__
+*click*+__
+*SHKRRRRRRRRR*... H-hello ? Is someone the-*SHKRRRRRRRRRRRRRRR*...+ How does this thing wor-*SHKRRRRRRRRRR*...+ You_
+hear m-*SHKRRRRRRRRRRR*...+ Hello ?+__
+
+<(4)1 - Hello ?__
+]
+
+[Scene 3 )???__
+*Static*+__
+...+__
+--SIGNAL LOST--#+__
+&{YOU HANGED UP, YOU'LL NEVER KNOW WHO WAS BEHIND THIS CALL AND WHY THEY CALLED YOU}=+__
+
+<$02/50\1 - Retry this Chapter !__
+<$00/50\2 - Return to Menu__
+<$99 3 - Quit__
+]
+
+[Scene 4 ???__
+*SHKRRRRRR*-MY GOD ! I’ve been stuck here-*SHKRRRRRRRRRRR*-days, it feels so good to hear someone’s voice..._
+*SHKRRRRRRRRRRRRRRRR*-any idea what’s going on ? Who are y-*SHKRRRRRRRRRRRRRRRR*-am I here ?+__
+
+<(6)1 - What ? I can’t understand half of what you're saying !...__
+<(5)2 - Who are you ?__
+]
+
+[Scene 5 ???__
+I’m-*SHKRRRRRRRRR*. I don’t know how-*SHKRRRRRRRRR*-can't get out... and you-*SHKRRRRRRRRRRRR... Are-*SHKRRRRRRRR*_
+-Still here ?+__
+
+<(6)1 - Your signal is horrible !__
+]
+
+[Scene 6 ???__
+Fuck ! The signal’s blur-*SHKRRRRRRRRR*... There must be a way to-*SHKRRRRRRRRRRR*...+ *snap*+__
+...+__
+...+__
+... A-are you there ? Can you hear me better ?+__
+
+<(7)1 - I think so ?__
+]
+
+[Scene 7 \\???__
+Oh thank god... It’s so nice to hear someone else’s voice.+__
+It’s been an eternity since I’ve talked to someone. Any longer and It would have driven me nuts.+__
+
+<(8)1 - Are you in danger ?__
+<(9)2 - Where are you ?__
+<(10)3 - Why did you call me ?__
+]
+
+[Scene 8 ???__
+I-I don’t know... I’ve been stuck on this island for two days... or three... Can't tell anymore...+__
+It really look like I’m the only one, there’s not a single soul here.+__
+
+<(9)1 - Where are you ?__
+<(10)2 - Why did you call me ?__
+<(11)3 - Stop. is that a prank call ?__
+]
+
+[Scene 9 ???__
+Actually in a sort of supermarket. The last few days of my life have been blurry as hell, I can’t even remember_
+what day it is!+__
+
+I-I’m all alone on this weird island, I’ve been looking for someone for hours now, and all I was able to find is_
+more ruins, it- it's like an abandonned city.+__
+
+How can such a place even exist ?+__
+
+It’s all just like a bad hangover.+__
+
+<(8)1 - Are you in danger ?__
+<(10)2 - Why call me tough ?__
+<(11)3 - Enough questions... is that a prank call ?__
+]
+
+[Scene 10 ???__
+I can’t even tell ! I just found this old ass... flip phone on one of the shelves, just picked it up and it-it_
+started a call as soon as I opened it !__
+There isn't anithing else on that piece of trash, no contacts or any internet access, only+ this Call...+__
+
+<(8)1 - Are you in danger ?__
+<(9)2 - Where are you ?__
+<(11)3 - Cut it off, just tell that's a prank ?__
+]
+
+[Scene 11 ???__
+I swear to god it’s not !!!+__
+
+Listen, seems like you’re the only one I can rely on right now. You’re literally the first person I’ve talked to in_
+the past few hours, or even days !+__
+You’re my only way to communicate with the outside world, it’s just a question of my own sanity at this point.+__
+
+<(18) 1 - Okay, just keep calm, maybe you could find some help by exploring the building ?__
+]
+
+[Scene 18 ???__
+O- Okay!... I gotta get out of the building first, just stay with me.+__
+*You hear the person’s footsteps echoing through the supermarket*+__
+This place is huge, you don’t realize that until the mall’s empty.+__
+...+__
+Just, what happened he- +__
+...+__
+I hear something.+ Mechanical screeching kind of noise.+__
+
+<(19) 1 - Sounds dangerous. Can’t you just go back ?__
+<(20) 2 - Maybe there's someone there ! You should go see where it comes from__
+]
+
+[Scene 19 ???__
+I've been exploring this island for hours now and I've find nothing back where I was.+__
+It's the first time I hear something else than the wind or the waves hitting the shore, so I'm not turning my back_
+now.+__
+If there's any living soul in here that knows what the fuck is going on, I'll go and talk to them.+__
+
+<(21) 1| - Do it. It will not be my fault if you get hurt.__
+<(20) 2@ - You might be right, any help is welcome at this point.__
+]
+
+[Scene 20 ???__
+I hope this thing will not be hostile.+__
+...+__
+... Not gonna lie, I'm kind of shitting my pants right now. I'll try to be stealthy, never too sure...+__
+*You hear a quiet breath and a machine noise slowly becoming louder*+__
+
+<(22) 1 - So ? Who is it ?__
+]
+
+[Scene 21 ???__
+You're not a kind one, huh ?+__
+... If you continue talking to me with this tone...+__
+You know what, fuck it.+__
+I'm going to see where that noise come from.+__
+
+<(22) 1 - So ? Who is it?__
+]
+
+[Scene 22 ???__
+Shhhh...+__
+Wait...+ I-It's an...+__
+... It's just a freacking escalator...+__
+... It goes weirdly fast, I've never seen any escalator be this speedy before!+__
+
+<(23) 1 - Why is it making this much noise ?__
+<(24) 2 - Why is it still working in an abandonned supermarket ?__
+<(25) 3 - Where does it lead ?__
+]
+
+[Scene 23 ???__
+It seems that the engine is overpowered. The escalator goes at a godly speed !+__
+It rattles like a goddamn lawnmower.+__
+What the-+ I can't even make up where are the steps, it's just so fast it's blurry !+__
+
+<(24) 1 - Why is it still working in an abandonned supermarket ?__
+<(25) 2 - Where does it lead ?__
+<(26) 3 - Try to climb a step.__
+<(27) 4 - Is there something else around you ?__
+]
+
+[Scene 24 ???__
+I've got no idea !+__
+All that remains here are only ruins.+__
+Seems weird that the only working thing in this supermarket is a dysfunctionnal escalator that prevents me from_
+going to the second floor.+__
+It almost feels like this was made on purpose...+__
+Damn me, I making the worst scenarios in my head now.+__
+
+<(26) 1 - Maybe you'll get answers by going to the first floor.__
+<(25) 2 - Where does it lead ?__
+<(23) 3 - Why is it making this much noise ?__
+<(27) 4 - Is there something else around you?__
+]
+
+[Scene 25 ???__
+I... Can't tell.+__
+Oh wait! There is sunlight up here! I think I can access a new part of the island if I go up here.__
+Even if I don't think I can go fast enough to compete against this escalator eh !+__
+
+<(26) 1 - Nice! Try to climb it then.__
+<(24) 2 - Why is it still working in an abandonned supermarket ?__
+<(23) 3 - Why is it making this much noise ?__
+<(27) 4 - Is there something else around you ?__
+]
+
+[Scene 26 ???__
+Hum...+__
+Okay ? It might lead somewhere interesting.+__
+I just have to...+ Take a step at the right...+ Time...+__
+WOOAAH SHI- *THUMB*+__
+...+__
+...+__
+
+<(27) 1| - Are you hurt ?!__
+]
+
+[Scene 27 ???__
+...+__
+Ouch...+__
+That hurt as hell...+__
+What a brillant idea you had ! Stepping on an out of control esc-OUCH!...+__
+Would be nice if you don't advice me to be this idiotic next time... Okay ?+__
+
+<(28) 1@ - Right, sorry for that.__
+<(29) 2| - You're the one who decided to listen to me.__
+]
+
+[Scene 28 ???__
+Yes, yes...+ No worries.+__
+It's just a little scratch, I can handle that.+__
+Anyway, there might be a way to stop that thing to go so fast.+__
+This escalator seems to be the only way to move forward, so let's search for a solution.+__
+
+<(30) 1 - What do you see around you ?__
+]
+
+[Scene 29 ???__
+Fuck off !__
+What tells me you didn't ask me to do that in purpose huh ?+__
+...+__
+Sorry, I'm overreacting, I just want to get out of here quickly.+__
+Let's not be stupid and find a way up here without getting hurt.+__
+
+<(30) 1 - What do you see around you ?__
+]
+
+[Scene 30 ???__
+Right, uhmmm...+__
+There seems to be two shelves that aren't empty in here.+__
+There is this food section.+ I think I see some food cans and some fruits.+__
+I can see a kind of craft section behind me too.+ There might be useful tools in here !+__
+
+<(31) 1 - Go to the food section.__
+<(32) 2 - Go to the craft section.__
+]
+
+[Scene 31 ???__
+Okay !+__
+I'm hungry as hell, I wouldn't say no to a little snack.+__
+*footsteps*+__
+...+ *snif*+__
+OH G-...+ IT SMELLS TERRIBLE OVER HERE !+__
+Shelves are filled with rotten fruits and vegeta-...+__
+*glurp*+ Oh lord I almost threw up...+__
+
+<(35) 1 - Might be a better idea to go to the craft section...__
+<(36) 2 - Can you keep going? there might be something interesting here.__
+]
+
+[Scene 32 ???__
+Right, let's go !+__
+A good hammer is always useful, especially in the kind of situation I'm in I guess.+__
+*footsteps*+__
+... Alright! Here I am.+ There is far less things on the shelves than what I've imagined.+__
+There is some door-wedge, packs of rusty nails and-Oh !+__
+A huge wire cutting pliers ! That's what I'm talking about !+__
+I'm picking it up.+ This might come handy if I have to smash something...+ Or someone.+__
+
+<(38) 1 - Do you see anything else ?__
+<(31) 2 - You might want to go look at the food shelves now.__
+]
+
+[Scene 35 ???__
+Y-you're right... It's best to get out of here before I-...+ *footsteps*+__
+... Oof, one more second and I think I would have passed out.+ Anyway, here I am.+__
+There is far less things on the shelves than what I've imagined.+__
+There is some door-wedge, packs of rusty nails and-Oh !+__
+A huge wire cutting pliers ! That's what I'm talking about !+__
+I'm picking it up.+__ This might come handy if I have to smash something...+ Or someone.+__
+
+<(38) 1 - Is there something else interesting ?__
+]
+
+[Scene 36 ???__
+Yeah, I guess, but it's on-*glurp*...+ Only because you asked me nicely...+__
+*footsteps*+__
+... Good heavens, aren't these trash supposed to be eaten by the bugs righ-...+__
+Weird, there's not a single a single fly out here...+__
+Anyway, I'm almost out of here.+__
+
+<(38) 1 - Is there something interesting ?__
+]
+
+[Scene 38 ???__
+Let me see...+__
+Ah AH!+ There's a door over here !+__
+There is a sign with "Maintenance Room" marked on it.+__
+Lucky me, it seems unlocked.+ *sound of door opening*+__
+...+ Well yeah,+ that surely looks like a maintenance room, or more like an abandonned maintenance room.+__
+... Oh my bad, seems to be one thing still working !+__
+
+<(39) 1 - What is it ?__
+]
+
+[Scene 39 ???__
+I-It's uuuuh...+__
+A laptop, seems to be on the lockscreen.+__
+There's a post-it attached on the upper right corner of it.+__
+It says "vaccine rabies year"...+ I don't know when that thing was !+__
+... What ?+ I don't remember how I got here in the first place, don't expect me to remember this !+__
+Anyway, you might want to search for that on the internet, it's a 4 digits password.+ I'll try to log in.+__
+
+<(40) 1 - Okay, go on, I'm searching that on my browser.__
+]
+
+[Scene 40 ???__
+Just have to press enter and...+__
+OH SHIT !!+__
+THERE'S A FUCKING TIMER IN HERE, IT'S BEEPING !+__
+I think the "vaccine rabies year" shit might be the password, FIND IT NOW !+__
+I don't know what will happen if it reaches 0 BUT I DON'T WANT TO FIND OUT !+__
+HURRY UP, WHAT'S THE PASSWORD ?!+__
+
+<^(41) 1 - 1903__
+<(43) 2 - 1885__
+<(41) 3 - 1850__
+<(41) 4 - 1985__
+<(41) 5 - 1895__
+/60\
+]
+
+[Scene \41 ???__
+ALRIGHT, I'LL TYPING THIS...+__
+Oh...+ Looks like the beeping sound sto-+*BOOO*-+SHKRRRRRRRRRRRRR...+__
+
+<(42) 1 -  Are you here ?__
+]
+
+[Scene 42 )???__
+*Static*+__
+...+__
+--SIGNAL LOST--#+__
+&{THE CALLER IS NO MORE. USING THE TOOLS HE HAS NOT COULD HAVE PREVENTED THAT.}=+__
+
+<$01/50\1 - Retry from this Chapter !__
+<$00/50\2 - Return to Menu__
+<$99 3 - Quit__
+]
+
+[Scene 43 ???__
+Alright, alright...+__
+I HOPE YOU'RE RIGHT !+__
+Please don't expload, please don't expload, please don't expload...+__
+
+<(44) 1 - Are you still alive ?__
+]
+
+[Scene 44 ???__
+Y-yes ?+__
+I think I am ?+__
+...+ I don't hear the escalator rumbling anymore, I think we've stopped it.+__
+%End of chapter 1=+__
+
+<$01/50\1 - Retry from this Chapter !__
+<$00/50\2 - Return to Menu__
+<$99 3 - Quit__
+]
