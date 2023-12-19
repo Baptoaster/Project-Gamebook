@@ -330,7 +330,7 @@ HURRY UP, WHAT'S THE PASSWORD ?!+__
 /60\
 ]
 
-[Scene \41 ???__
+[Scene 41 \???__
 ALRIGHT, I'LL TYPING THIS...+__
 Oh...+ Looks like the beeping sound sto-+*BOOO*-+SHKRRRRRRRRRRRRR...+__
 
