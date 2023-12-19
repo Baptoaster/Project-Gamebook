@@ -1292,7 +1292,6 @@ bool Interface::displayText(string content)
 	size_t index = 0;
 	int indexScene = 0;
 	int indexChapter = 0;
-	int indexTrust = 0;
 	int indexTrustNumber = 0;
 	int indexTrustRequirement = 0;
 	int numberChoice = 0;
@@ -1697,14 +1696,12 @@ bool Interface::displayText(string content)
 		// Trust +
 		else if (content[i] == '@')
 		{
-			this->tabTrust[indexTrust] = "1";
-			indexTrust += 1;
+			this->tabTrust[numberChoice - 1] = "1";
 		}
 		// Trust -
 		else if (content[i] == '|')
 		{
-			this->tabTrust[indexTrust] = "-1";
-			indexTrust += 1;
+			this->tabTrust[numberChoice - 1] = "-1";
 		}
 		// Timer Time
 		else if (content[i] == '/')
