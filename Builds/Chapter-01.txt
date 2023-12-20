@@ -23,7 +23,7 @@ hear m-*SHKRRRRRRRRRRR*...+ Hello ?+__
 --SIGNAL LOST--#+__
 &{YOU HANGED UP, YOU'LL NEVER KNOW WHO WAS BEHIND THIS CALL AND WHY THEY CALLED YOU}=+__
 
-<$02/50\1 - Retry this Chapter !__
+<$01/50\1 - Retry this Chapter !__
 <$00/50\2 - Return to Menu__
 <$99 3 - Quit__
 ]
