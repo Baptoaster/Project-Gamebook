@@ -79,9 +79,11 @@ string File::read(Interface& interfaces, string path)
 	string content = "";
 	string chapter = "";
 	string chapterTitle = "";
+	string scene = "";
 	string trust = "";
 	bool skipChapter = false;
 	bool skipChapterTitle = false;
+	bool skipScene = false;
 	bool skipTrust = false;
 	int line = 0;
 
@@ -100,13 +102,28 @@ string File::read(Interface& interfaces, string path)
 			// Read Each Caracters
 			for (int i = 0; i < contentLine.length(); i++)
 			{
+				// Scene Number
+				if (skipScene)
+				{
+					// End
+					if (contentLine[i] == '>')
+					{
+						skipScene = false;
+					}
+					else
+					{
+						scene += contentLine[i];
+					}
+				}
 				// Trust Number
-				if (skipTrust)
+				else if (skipTrust)
 				{
 					// End
 					if (contentLine[i] == '\\')
 					{
 						skipTrust = false;
+						skipScene = true;
+						i += 1;
 
 						// Set Trust
 						if (!interfaces.getDefaultTrust())
@@ -121,6 +138,7 @@ string File::read(Interface& interfaces, string path)
 						trust += contentLine[i];
 					}
 				}
+				// Chapter Title
 				else if (skipChapterTitle)
 				{
 					// End
@@ -151,16 +169,17 @@ string File::read(Interface& interfaces, string path)
 						chapter += contentLine[i];
 					}
 				}
-				// Other
+				// Start Chapter Number
 				else if (contentLine[i] == '-')
 				{
 					skipChapter = true;
 				}
 			}
 
-			// Set Chapter
+			// Set Chapter & Scene
 			interfaces.setChapter(chapter);
 			interfaces.setChapterTitle(chapterTitle);
+			interfaces.setScene(scene);;
 		}
 
 		// Line Incrementation
