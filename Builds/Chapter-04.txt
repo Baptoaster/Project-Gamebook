@@ -87,7 +87,7 @@ I think pushing it down and getting over would prove quite easy.+__
 What do you think?+__
 
 <(138)1 - Yeah let's do that!__
-<(8)2 - Maybe you should go around, you might find something interesting.__
+<(16)2 - Maybe you should go around, you might find something interesting.__
 ]
 
 [Scene 10 __
@@ -102,7 +102,7 @@ I got myself a smart one, uh?+__
 I'm being conditional 'cause there's a fence surrounding the entrance.+__
 Either have to get around or through it.+__
 
-<(8)1 - Get Around it.__
+<(16)1 - Get Around it.__
 <(138)2 - Get through it.__
 ]
 
@@ -1042,7 +1042,7 @@ If there's any chance of the fuse being there, I gotta go!+__
 %They were strong, but the disease ended up taking them as well.=#+__
 #%There is no chance fighting it, they're armed and quick, it's a miracle they didn't catch you in the vent.=#+__
 
-<(112)1 - My 'friend' is here to help you. Together you can escape.__
+<(112)1| - My 'friend' is here to help you. Together you can escape.__
 <(112)2| - You'd get killed, you need to take a secret path.__
 <(112)3 - You aren't the first. They were once like you.__
 ]
@@ -1072,7 +1072,7 @@ I-I’ll do what you tell.+ You’ve been of great help up until there.+ Just te
 %#Tell them there’s a way to join me.#=+__
 %#They must be quick, the rooms switch location quite frequently.#=+__
 
-<(114)1 - The person on the line can help you, they’ve been of great to me as well.__
+<(114)1 - The person on the line can help you, they’ve been of great help to me as well.__
 ]
 
 [Scene 114 __
@@ -1134,8 +1134,7 @@ aaaAAH-+ aah...+ aah...+__
 
 [Scene 121 __
 You-+ Your face!+__
-%I should’ve warned you before.+ It’s hard to explain that so… directly.=+__
-%Most of us figure it out much earlier.=+__
+%I should’ve warned you before.+ It’s hard to explain that so...+ directly. +Most of us figure it out much earlier.=+__
 Am I...+ Dumber than the-+ ...others?+__
 %No, you’re healthier.+ That ‘thing’ was…+ One of us.+ Like all of us.=+__
 %Injected with the disease, grown in an artificial womb in a few weeks,=+__
@@ -1190,7 +1189,7 @@ W-Wait what?+__
 
 [Scene 127 __
 %You won’t know.=+__
-%But I can assure you that I didn’t lived hidden for months on this abandonned island for this plan to fail.=+__
+%But I can assure you that I haven’t lived hidden for months on this abandonned island for this plan to fail.=+__
 Are you sure he’ll track us with it?+__
 I mean...+ It could be useful to have the original communicate with us and-__
 %We can’t.+__
