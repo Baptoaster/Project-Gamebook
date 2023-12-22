@@ -1954,7 +1954,7 @@ void Interface::clear()
 	for (int i = 0; i < 11; i++)
 	{
 		posCursor(4, 26 + i);
-		cout << "                                                                                           " << endl;
+		cout << "                                                                                              " << endl;
 	}
 
 	// Initialisation
