@@ -142,7 +142,8 @@ I'm as clueless as you are.+__
 [Scene 16 __
 I found this phone in this supermarket, and simply opening it started the call+__
 *Button presses*+__
-It doesn't seem to have any app installed, I can't even access the contacts. Calling you was the only thing I could do with this dusty relic of a device.+__
+It doesn't seem to have any app installed, I can't even access the contacts. Calling you was the only thing I could_
+do with this dusty relic of a device.+__
 
 <(17)1 - Okay, are you in danger?__
 <(20)2 - What could I do about that?__

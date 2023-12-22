@@ -838,7 +838,8 @@ Then it means I am somewhat special compared to others. I am a successful clone.
 I guess I can search for some!+ *footsteps*+__
 ...+There are plans in this room, it might give me more clues about what's happening.+__
 It says here that...+__
-"The faulty subjects are disposed in the nutrients grinder so they can be recycled as energy for the future subjects conception"+__
+"The faulty subjects are disposed in the nutrients grinder so they can be recycled as energy for the future subjects_
+conception"+__
 
 <(88)1 - Nutrient grinder?__
 <(89)2 - Does that mean they might be other you/me in here?__
@@ -1052,7 +1053,8 @@ Ah shit, that was not the best idea to take a huge breath near a pile of freshly
 [Scene 108 __
 ...+__
 I'll act as if that was a joke...+__
-To change the subject, I'm now in a corridor now, and it seems far more preserved than annything I saw on this island before.+__
+To change the subject, I'm now in a corridor now, and it seems far more preserved than annything I saw on this island_
+before.+__
 The lights are even working in here.+__
 
 <(112)1 - Doesn't it seems like an inhabited place?__
@@ -1168,7 +1170,8 @@ W-Wait...+ What do you mean by clone?+ I have feelings! I can feel pain!+__
 ]
 
 [Scene 121 __
-&You're mistaking yourself with a robot, subject 835.+ You're just a pale copy of what this person you're talking to is.=+__
+&You're mistaking yourself with a robot, subject 835.+ You're just a pale copy of what this person you're talking_
+to is.=+__
 I...+__
 &Confused, right?+ just come to me and accept what you're supposed to be : a succesful vessel.=+__
 &Your blood will save millions, let me just exctract all of it from you!=+__
