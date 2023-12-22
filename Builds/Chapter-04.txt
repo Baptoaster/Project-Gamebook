@@ -9,9 +9,9 @@ I'll go there if I can.+ Let's go.+__
 ]
 
 [Scene 2 __
-With how much all of this looks like a setup, I might find the fuse in there.+__
-I just don't get why whoever is keeping me here left a working phone back there. I'm just playing their game at this_
-point.+__
+With how much all of this looks like a setup, I might find the fuse there.+__
+I just don't get why whoever is keeping me in this place left a working phone back in the supermarket.+__
+I'm just playing their game at this point.+__
 *footsteps*+__
 
 <(8)1 - That's a pain of a situation for sure.__
@@ -28,8 +28,8 @@ point.+__
 [Scene 4 __
 I...+ I'm just really stressed-+__
 ...+__
-Listen, I might have found this phone but I don't feel like you're here to help...+ I don't know, you've got to put_
-yourself in my place a bit...+__
+Listen, I might have found this phone but I don't feel like you're here to help...+__
+I don't know, you've got to put yourself in my place a bit...+__
 *footsteps*+__
 
 <(7)1 - You're right, let's both calm down and work together.__
@@ -38,7 +38,8 @@ yourself in my place a bit...+__
 ]
 
 [Scene 5 __
-You- I mean, you know- I get it. It's hard to handle some random person calling you for seemingly no reason.+__
+You- I mean, you know- I get it.+__
+It's hard to handle some random person calling you for seemingly no reason.+__
 ...+__
 But thanks for admitting that, I already feel safer if you're able to show a bit of self-awareness+__
 
@@ -48,8 +49,8 @@ But thanks for admitting that, I already feel safer if you're able to show a bit
 [Scene 6 __
 We are.+__
 ...+__
-I've arrived to the entrance, but I have to get through a fence. It seems really fragile, so getting rid of it wouldn't_
-be that hard. That thing's already quite damaged.__
+I've arrived to the entrance, but I have to get through a fence.+__
+It seems really fragile, so getting rid of it wouldn't be that hard.+ That thing's already quite damaged.+__
 ...+__
 Or I could go around, there's no reason for a building like this not to have some kind of backdoor.+__
 
@@ -60,8 +61,8 @@ Or I could go around, there's no reason for a building like this not to have som
 [Scene 7 __
 Alright...+__
 ...+__
-There's a metal fence around the entrance. I should be able to push it, but going around and finding another entrance_
-might be easier.+__
+There's a metal fence around the entrance.+__
+I should be able to push it, but going around and finding another entrance might be easier.+__
 
 <(138)1 - Yeah, get rid of that thing.__
 <(16)2 - Yeah, go for a backdoor.__
@@ -70,17 +71,19 @@ might be easier.+__
 [Scene 8 __
 Kind of...+ Yeah.+__
 ...+__
-I got closer to the building, enough to realise the entrance's blocked by a fence.+ It looks brittle enough, but getting_
-around might also be easier, it only seems to block the main entrance.+__
+I got closer to the building, enough to realise the entrance's blocked by a fence.+__
+It looks brittle enough, but getting around might also be easier,__
+it only seems to block the main entrance.+__
 
 <(138)1 - Let's not waste time, try and push the fence.__
 <(16)2 - You should try to find a backdoor.__
 ]
 
 [Scene 9 __
-There seem to be a fence in front of the main entrance+__ 
-I probably could get around and find another way to enter, but from this distance it looks really thin and rusted, I think_
-pushing it down and getting over would prove quite easy.+__
+There seem to be a fence in front of the main entrance.+__
+I probably could get around and find another way to enter,__
+but from this distance it looks really thin and rusted,__
+I think pushing it down and getting over would prove quite easy.+__
 What do you think?+__
 
 <(138)1 - Yeah let's do that!__
@@ -124,8 +127,8 @@ I'm starting to feel a bit more hopeful about getting out of here if you're on m
 ]
 
 [Scene 14 __
-I'm getting there.+ But I can already see the place's protected by a fence. It isn't a big deal, I could probably find_
-another entrance.+__
+I'm getting there.+ But I can already see the place's protected by a fence.+__
+It isn't a big deal, I could probably find another entrance.+__
 *footsteps*+__
 The metal looks brittle. I probably could bend it down and get over it.+__
 What do you think?+__
@@ -135,7 +138,8 @@ What do you think?+__
 ]
 
 [Scene 15 __
-Hm-+ Anyways, there's a fence blocking the way to the main entrance. I can either try and get through or go around.+__
+Hm-+ Anyways, there's a fence blocking the way to the main entrance.+__
+I can either try and get through or go around.+__
 It looks weak enough to be bent, but this kind of buildings tend to have backdoors.+__
 
 <(138)1 - You should break the fence.__
@@ -145,7 +149,7 @@ It looks weak enough to be bent, but this kind of buildings tend to have backdoo
 [Scene 16 __
 Yeah. The main entrance might be trapped, I'd rather find another way.+__
 *footsteps*+__
-Thinking outside the box might be the way to avoid some of the-+ ...+ psycho+ keeping me here's games.+__
+Thinking outside the box might be the way to avoid some of the-+ ...+ psycho+ keeping me here's-+ games.+__
 
 <(17)1 - Exactly my thought.__
 <(18)2 - Let's hope backdoors aren't either...__
@@ -156,7 +160,8 @@ Good to know we're on the same line.+__
 ...+__
 I know it sounds weird, but...+ I really like the slight breeze on this island.+__
  If it wasn't covered in trash and dull concrete, it'd be almost habitable.+__
-I almost regret not going for a walk in the zoo, but I really need to find food and I'm not about eating a raw giraffe.+__
+I almost regret not going for a walk in the zoo,__
+but I really need to find food and I'm not about eating a raw giraffe.+__
 
 <(19)1 - Not like you'd find anything alive anyways.__
 <(19)2 - Zoos are smelly.__
@@ -173,11 +178,13 @@ Who knows...He might be an idiot+__
 ]
 
 [Scene 19 __
-Talking about the zoo, guess what.+ It's awfully close to this place. I can see the inside of the enclosures from there.+__
-Whoever designed this city should be fired.+ Or even set on fire.+ Because I'm stuck inside their shittily designed city.+_
+Talking about the zoo, guess what.+ It's awfully close to this place.+__
+I can see the inside of the enclosures from there.+__
+Whoever designed this city should be fired.+ Or even set on fire.+__
+Because I'm stuck inside their shittily designed city.+__
 That prick.+__
-#%*Distorted chuckle=#+__
-#%Th  +re  Bet er off there wit+  me thAn aloNe in thE ZoO=#+__
+#%*Distorted chuckle*=#+__
+#%Th  +re  Bet er off there wit+  me thAn aloNe in thE ZoO.=#+__
 
 <(23)1 - Who's that? What experiments?__
 <(21)2 - Good one. Have you found an entrance yet?__
@@ -215,8 +222,8 @@ Oh god.+__
 ]
 
 [Scene 23 __
-m-+ Me?+ As I've said before I-__
-#%oNe Of tHE pREviouS=# +*static*+__
+M-+ Me?+ As I've said before I-__
+#%oNe Of tHE pREviouS=# +*static*%.=+__
 #%I'm hEre To +hElp+ You. I'm AblE To ComM  ICaTE thRoUGH+   e dEsaFECted ConTRol-=#+__
 *static*#+#+__
 #%SurVivoR. I'm tryINg   #+  T oTherS oUT Of His Tr +PS.=#+__
@@ -235,8 +242,8 @@ What? Who are you talking to?+ You're really starting to freak me out.+__
 ]
 
 [Scene 25 __
-Of course I'm going to worry!!! You're giving me no explanation after saying shit about some experiment. Are there more people_
-with you?
+Of course I'm going to worry!!!+__
+You're giving me no explanation after saying shit about some experiment. Are there more people with you?+__
 ...+__
 You're always alternating between reinsuring and cryptic, talking to the fucking voices now!+__
 Am-+ Am I a game to you? Are you going to fucking tell?!+__
@@ -251,7 +258,8 @@ And... You're just gonna say that now?+__
 Uh... Nevermind. I'm not even gonna ask anymore.+__
 .+.+.+__
 But should we reaaally trust them?+__
-I mean, why would anyone other than the person behind all of this try to talk to you, and why can't I hear them?+__
+I mean, why would anyone other than the person behind all of this try to talk to you,__
+and why can't I hear them?+__
 
 <(27)1 - They seem to interfere with the outgoing signal, hence why you don't hear it.__
 <(27)2 - Hard to understand what they're saying. They'd need you to get closer.__
@@ -301,11 +309,11 @@ On the wall.+ I'm so sick.+__
 ]
 
 [Scene 31 __
-"THEY FED ME MY OWN SELF"
+"THEY FED ME MY OWN SELF".+__
 I...+ Really don't want to discover what happened on this island.+__
 ...+__
-I'm almost surprised that wasn't written in blood. Although blue blood might be a thing on this island.+__ 
-I dont know, I'm not a-+ blood+ ...scientist.+__
+I'm almost surprised that wasn't written in blood. Although blue blood might be a thing on this island.+__
+I dont know, I'm not a...+ ...blood+ ...scientist.+__
 
 <(32)1 - What does that mean?__
 <(33)1 - Who do you think did it?__
@@ -316,7 +324,8 @@ It really feels like some edgy shit a fourteen years old would write.+__
 ...+__
 But I'm still shaken up despite how ridiculous that is...+__
 Like...+ Someone wrote that in some place in the middle of the ocean.+__
-I'm not gonna mess with a fourteen year old, not matter how angsty, who's ready to cross the ocean for a joke.+__
+I'm not gonna mess with a fourteen year old, not matter how angsty,__
+if they're ready to cross the ocean for a joke.+__
 
 <(34)1 - Yup, I really don't know.__
 ]
@@ -331,7 +340,7 @@ I dunno. Maybe your friend did it.__
 
 [Scene 34 __
 Well me neither.__
-Let's just move on knowing some lunatic could jump me any minute.+__ 
+Let's just move on knowing some lunatic could jump me any minute.+__
 No big deal.+__
 
 <(35)1 - It's just a matter of grabbing the fuse and leaving.__
@@ -350,7 +359,8 @@ Chance might be on our side. And I'm not unhappy with doing a bit of exercise.+_
 
 [Scene 36 __
 I'm cl-+ Oh-+__
-Hold on a minute will you... I'm not a-+ stair climbing+ ...Athlete. +__ I'm...+ getting there...+__
+Hold on a minute will you... I'm not a...+ ...stair climbing+ ...Athlete. +__
+I'm...+ getting there...+__
 Huff...Huff...__
 .+.+.+__
 Guess what.+__
@@ -372,8 +382,8 @@ but I'd rather go back to the entrance than spend my time here.+__
 ...+__
 Y'know what, that was a joke.+ I ain't coming back down again.+__
 There's a window on the door, might as well check if it's even worth it.+__
-It's...+ Messy...+ Some sort of office.+ I can see a wrench on the ground, and a door probably leading to the inside of the_
-factory.+__
+It's...+ Messy...+ Some sort of office.+__
+I can see a wrench on the ground, and a door probably leading to the inside of the factory.+__
 We gotta get that door open.+ That wrench looks sick.+__
 
 <(40)1 - What's on the left?__
@@ -382,18 +392,20 @@ We gotta get that door open.+ That wrench looks sick.+__
 
 [Scene 39 __
 If there's a clue anywhere, it'd be inside.+__
-Good thing the door has a window,+ worse case scenario I might just smash it and slither in like a...+ tapeworm.+__
+Good thing the door has a window,+ worse case scenario I might just smash it and slither in like a...+__
+...tapeworm.+__
 The place looks like it was left in a hurry a dozen of year ago. +__
 Someone even smeared their coffee on the carpet.+__
 And what's that?+__
-A random wrench laying on the ground?+ Now that's a motivator, I might have to bash some unfriendly's creature skull.+__
+A random wrench laying on the ground?+ Now that's a motivator,__
+I might have to bash some unfriendly's creature skull.+__
 
 <(40)1 - Anything on the left?__
 <(42)2 - Anything on the right?__
 ]
 
 [Scene 40 __
-Huuuh... There's a cork board with a bunch of blank pieces of paper pinned onto it...+__ 
+Huuuh... There's a cork board with a bunch of blank pieces of paper pinned onto it...+__
 And a literal passcode note. 7734.+__
 Which is 4 digits so it's useless, are you kidding me.+__
 
@@ -472,7 +484,7 @@ Click. Then?__
 ]
 
 [Scene 49 __
-And we got it open. + 666. What kind of protection is that?+__
+And we got it open. +666. What kind of protection is that?+__
 How'd you figure that out?+__
 
 <(51)1@- Remembered good ol' 5318008.__
@@ -517,10 +529,10 @@ I'm more focused on survival than some stupid calculator cypher.+__
 
 [Scene 54 __
 GOOD!+ Let's not waste anymore time!+__
-We're finally in after all!+ Maybe going through the main entrance would have been faster, but at least I got to_
-breathe fresh air.+__
+We're finally in after all!+__
+Maybe going through the main entrance would have been faster, but at least I got to breathe fresh air.+__
 *THUD*+__
-Oh, yes.+__ 
+Oh, yes.+__
 I also get to pick that beautiful wrench.+__
 
 <(55)1 - Do you even know how to use it?__
@@ -556,7 +568,7 @@ I'm only stealing my freedom back after all.+__
 The other door is locked, and the latch seems to be stuck.+ +__
 *Hammering sounds*+__
 But that's a puzzle for another day, I've got places to be.+__
-...+__ 
+...+__
 That thing packs a severe punch, I got it opened in a few hits.+__
 *door creaks*+__
 
@@ -568,8 +580,8 @@ That thing packs a severe punch, I got it opened in a few hits.+__
 It is w-+ way colder in here than outside.__
 *voice echoes*+__
 This place is huge.+ I'm in a hallway so long I can't see the other side.__
-It really feels like I'm standing in front of a void, with only the echo of my voice proving me there's something_
-that way.+__
+It really feels like I'm standing in front of a void,__
+with only the echo of my voice proving me there's something that way.+__
 And these big tubes...+ This place isn't for making shoes, that's for sure.+__
 
 <(59)1 - How big exactly?__
@@ -577,7 +589,8 @@ And these big tubes...+ This place isn't for making shoes, that's for sure.+__
 ]
 
 [Scene 59 __
-About my size.+ They're all connected to a dense net of wires on the ground.+ Almost makes it hard to navigate.+__
+About my size.+ They're all connected to a dense net of wires on the ground.+__
+Almost makes it hard to navigate.+__
 Also smells quite odd.+ It's both off-putting...+ And weirdly conforting...+__
 #%He's pLaying wi  yoU. WhY+ briNG=# +*static*+ #%Up?=#+__
 
@@ -598,8 +611,8 @@ It's an... +...+ overwhelming view...+ This looks like a scene from a Science-fi
 [Scene 61 __
 What's that about a per...+ Oh,+ they came back.+__
 #*static*#+__
-#%These are old v ts.= +#*static*#+ %famiILar+ placE for all   us. Grown and fed= +#*static*#+ %those. New ONes in_
-museUm.=#__
+#%These are old v ts.= +#*static*#+ %famiILar+ placE for all   us. Grown and fed= +#*static*#+ %those.=+__
+%New ONes in museUm.=#+__
 
 <(63)1 - What do you mean "grown"?__
 <(64)2 - Wait... Do you live there?__
@@ -610,7 +623,7 @@ No...+ There's something deeply upsetting about this place...+__
 Everything about it feels like...+ entrails.+__
 I feel...+__
 At home+__
-#%I kNoW th T+ feEling. And He knoWs what hE's dOing.=#__
+#%I kNoW th T+ feEling. And He knoWs what +hE's+ dOing.=#__
 
 <(63)1 - Must be the hunger. You really need to eat.__
 <(64)2 - Is this... Your home?__
@@ -620,7 +633,7 @@ At home+__
 Maybe-+ That's what they're for?+__
 Growing food?+__
 I-I'm starving.+__
-#%YOu've had enOugh of that alrEAdy. Tell thEM to come down, th re is cANned food HEre.=#__
+#%YOu've had enOugh+ of that alrEAdy. Tell thEM to come down, +th re is cANned food HEre.=#__
 
 <(65)1 - There is food down there.__
 ]
@@ -635,7 +648,8 @@ I-I'm starving.+__
 ]
 
 [Scene 65 __
-I don't know how trustworthy this person is, but this place is making me so sick I won't stay for a second more.+__ 
+I don't know how trustworthy this person is,__
+but this place is making me so sick I won't stay for a second more.+__
 So I'll just do the next best thing .+__
 
 <(66)1 - Wait. Where are you going?__
@@ -646,16 +660,17 @@ Down the vent system. I just need to get it open.+__
 ...+__
 What?+ You didn't expect me to try something while you're listening to their ramblings?+__
 If there's food I can eat I need to go down.+__
-#%Good call. This room seems secluded from the rest of the building.  =__%The vent sytem might be the only way down.=#+__
+#%GOod call. This+ roOm seems sec  ded from the rEst+ of the BUi ding.=__
+%The vent sytem might be the only way down.=#+__
 
 <(67)1 - You really want to go in there?__
 <(67)2 - Still got the wrench with you?__
 ]
 
 [Scene 67 __
-Absolutely.+__ 
+Absolutely.+__
 You know how nothing works like it's supposed to on this island?+__
-The grid istelf is its own uncomprenhensible enigma.+__ 
+The grid istelf is its own uncomprenhensible enigma.+__
 In fact, it isn't a grid.+__
 More like a lid with a big bolt.+__
 
@@ -724,7 +739,7 @@ Despite it being squished between four steel walls.+__
 [Scene 82 __
 For what being forced to crawl through a vent by a faceless sadist could have been+, kind of.+__
 ...+__
-I can hear air flowing through another vent nearby.+__ 
+I can hear air flowing through another vent nearby.+__
 So there is functionnal ventilation on this island, huh.+__
 Might have been more effective if that one wasn't converted into a parkour tunnel for me to enjoy.+__
 
@@ -733,7 +748,7 @@ Might have been more effective if that one wasn't converted into a parkour tunne
 
 [Scene 83 __
 I'm sure you can wait for a bit longer.+__
-I'm not a-+ vent crawling+ ...expert.+__
+I'm not a...+ ...vent crawling+ ...expert.+__
 ...+__
 I hear clicking and clanking all around, machinery doing its thing.+__
 I thought this island was abandoned, but it's becoming more and more evident at least someone lives there.+__
@@ -778,8 +793,8 @@ I-+ Need to get to the down area.+__
 ]
 
 [Scene 88 __
-I'm not just going to jump into the void! I don't what caused this noise, but I can tell it's not +-inside-+ the vent_ 
-from the height it had to fall from.+__
+I'm not just going to jump into the void! I don't what caused this noise,__
+but I can tell it's not +-inside-+ the vent from the height it had to fall from.+__
 I should keep going forward and find a way down.+__
 
 <(89)1| - You're such a hassle.__
@@ -898,24 +913,24 @@ How would I even swing it?+__
 ]
 
 [Scene 99 __
-Oh, I took that as irony...+__
+Oh, I took that as ironic...+__
 Thank you for your help, I wouldn't have made it out without you.+__
 ...+__
 I-+ I'm in a storage room.+ The person advising you didn't lie.+__
 The shelves are laid with cans.+__
-I'm drenched however, as the area is flooded.+__
+I'm drenched however, the area is flooded.+__
 I really wouldn't count on the taste of the mush inside.+ Ew+__
 
 <(103)1 - You've been waiting for this.__
 ]
 
 [Scene 100 __
-Fuck you! I feared for my life, and breaking all of my bones falling from that vent was as scary as the thing_
-chasing me!+__
+Fuck you!+ I feared for my life, __
+and breaking all of my bones falling from that vent was as scary as the thing chasing me!+__
 ...+__
 I'm lucky this area is flooded, the water kind of softened the fall.+__
 ...+__
-Your friend didn't lie though, there's food everywhere here.+__ 
+Your friend didn't lie though, there's food everywhere here.+__
 Half of it is as drenched as I am, so I can't imagine the taste,+ but that'll have to do.+__
 
 <(103)1 - "Bon appétit!"__
@@ -936,8 +951,8 @@ This is like a storage room for Spam-looking, dank mush.+__
 [Scene 102 __
 Thanks.+ You saved my life.+__
 ...+__
-There's so much water down there.+__ Positively better than just hitting the concrete, but I'm worried I'll catch_
-a cold.+__
+There's so much water down there.+__
+Positively better than just hitting the concrete, but I'm worried I'll catch a cold.+__
 Also, thank your friend, there's indeed loads of food there. +__
 ...+__
 Never been a fan of damped mush, but gourmet's palate has a time and place.+__
@@ -949,7 +964,7 @@ Never been a fan of damped mush, but gourmet's palate has a time and place.+__
 Here goes nothing-+ I'm opening one.+__
 *clunk*+__
 It's-+ Neutral in odor.+ Doesn't look like anything, but not repulsive either.+__
-#%These are quite gOod, actually. Not that there is anYthing I can eat thEre either.=#+__
+#%These are quite gOod, actually. Not that there is anYthing else to eat thEre.=#+__
 .+.+.+__
 .+.+.+__
 
@@ -957,7 +972,7 @@ It's-+ Neutral in odor.+ Doesn't look like anything, but not repulsive either.+_
 ]
 
 [Scene 104 __
-I'm not a-+ fast eating+ ...champ-__
+I'm not a...+ ...fast eating+ ...champ-__
 But yes,+ I'm done, let's move.+__
 *Door slamming open*+__
 ...+__
@@ -972,8 +987,8 @@ I have no idea what I'm stepping on, the water seems to be getting deeper and de
 *footsteps and splashes*+__
 #%Change of plan. The room layout changed. It's time for them to come and meet me.=#+__
 I can see an exit door!+__
-#%It'll lead directly to the fuse. But the trapdoor will take them back to their vat.__= %I don't want them to_
-suffer the same fate as the others.=#+__
+#%It'll lead directly to the fuse. But the trapdoor will take them back to their vat.=+__
+%I don't want them to suffer the same fate as the others.=#+__
 
 <(108)1 - Wait.__
 <(106)2 - Go for the exit.__
@@ -981,7 +996,8 @@ suffer the same fate as the others.=#+__
 
 [Scene 106 __
 That's well what I'm counting on.+__
-#%You're condemning them.+ They still could be saved, most lose their minds before they even reach the trapdoor.=#+__
+#%You're condemning them!+__
+They still could be saved, most lose their minds before they even reach the trapdoor!=#+__
 
 <(108)1 - On second thought. Stop.__
 <(107)2 - You need to get out. The fuse is this way.__
@@ -1091,8 +1107,8 @@ How will I be able to tell where I am ?+__
 [Scene 118 __
 Okay, let me take some clothes off first,+ I’ll leave this wrench here too.+__
 I’m not hyped about death by drowning in a sewage pipe.+__
-%#No worries. I got spare clothes. Tell them to hurry up, being ripped in half when rooms move again isn’t glamour_
-either.#=+__
+%#No worries. I got spare clothes.+__
+Tell them to hurry up, being ripped in half when rooms move again isn’t glamour either.#=+__
 
 <(119)1 - I believe in you, go quick, before the rooms move again.__
 ]
@@ -1118,12 +1134,13 @@ aaaAAH-+ aah...+ aah...+__
 
 [Scene 121 __
 You-+ Your face!+__
-%I should’ve warned you before.+ It’s hard to explain that so… directly.+ Most of us figure it out much earlier.=+__
+%I should’ve warned you before.+ It’s hard to explain that so… directly.=+__
+%Most of us figure it out much earlier.=+__
 Am I...+ Dumber than the-+ ...others?+__
 %No, you’re healthier.+ That ‘thing’ was…+ One of us.+ Like all of us.=+__
 %Injected with the disease, grown in an artificial womb in a few weeks,=+__
 %while we lived all of their life without realising we weren’t even there.=+__
-Are you... talking about the thing’s life?+ &No. I’m talking about the person you called.=+__
+Are you... talking about the thing’s life?+ %No.++ I’m talking about the person you called.=+__
 
 <(122)1 - Me?__
 ]
@@ -1149,8 +1166,10 @@ So, are we…+ Clones of you ?+__
 [Scene 124 __
 %It doesn’t matter anymore.+ Now that we are both together, we have to execute the plan I’ve been ploting.=+__
 Wait!+ What do you mean by plan?+__
-%Don’t you want to stop all of this?+ If we just escape, he’ll just create more of us. We have to stop this.=+__
-I...+ That’s true.+ I don’t want other people to go through what we’ve been,+ no matter if they’re clones or not.+__
+%Don’t you want to stop all of this?+__
+If we just escape, he’ll just create more of us. We have to stop this.=+__
+I...+ That’s true.+__
+I don’t want other people to go through what we’ve been,+ no matter if they’re clones or not.+__
 
 <(125)1 - That's insanity! How are you going to stop this scientist?__
 ]
@@ -1170,10 +1189,12 @@ W-Wait what?+__
 ]
 
 [Scene 127 __
-%You won’t know.+ But I can assure you that I didn’t lived hidden for months on this abandonned island for this plan_
-to fail.=+__
-Are you sure he’ll track us with it?+ I mean...+ It could be useful to have the original communicate with us and-__
-%We can’t.+ I can’t even clearly identify if you’re part of all of this or not even if we have the same memories.=+__
+%You won’t know.=+__
+%But I can assure you that I didn’t lived hidden for months on this abandonned island for this plan to fail.=+__
+Are you sure he’ll track us with it?+__
+I mean...+ It could be useful to have the original communicate with us and-__
+%We can’t.+__
+I can’t even clearly identify if you’re part of all of this or not even if we have the same memories.=+__
 
 <(128)1 - We have the same memories?!__
 <(128)2 - Is there another way to contact you?__
@@ -1359,7 +1380,8 @@ Yes!+ Of course!+__
 [Scene 145 __
 I-+ I am!+__
 I'm running towards it!+ I can even see it from here!+__
-%#T  re's noThIng left to do. HE will hAve w at HE's always looked for and We'll keep sUffering. TherE is no p  nt.=#__
+%#T  re's noThIng left to do.+ HE will hAve w at HE's always looked for and We'll keep sUffering.=+__
+%TherE is no p  nt.=#+__
 
 <(146)1 - What are you doing?__
 ]
@@ -1400,8 +1422,8 @@ Goodbye...+__
 [Scene 150 )__
 ...+__
 --SIGNAL LOST--+__
-&{ONE LIFE SAVED, BUT WHAT ABOUT THE OTHERS?}=+__
-%TRAPDOOR ENDING.=+__
+&{SAME HOPE AND DREAMS, A LIFE FOR ANOTHER.+ BUT WHAT ABOUT THE OTHERS?}=+__
+%SACRIFICE ENDING.=+__
 
 <$04/50\1 - Retry this Chapter__
 <$01/50\2 - Retry from Chapter-01__
