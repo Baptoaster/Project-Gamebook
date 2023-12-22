@@ -223,7 +223,7 @@ PLEA- *biiiip*
 [Scene 24 __
 I have no idea! Your number was on that phone, that’s the only thing I know!+__
 You can’t just ignore the fact that you’ve got something to do with this bullshit!+__
-You can’t just leave me like that!
+You can’t just leave me like that!__
 
 <(25)1 - I have nothing to do with you. Please don’t call me again.__
 <(27)2 - Fine...How can I help you?__
@@ -255,8 +255,8 @@ I'm sorry to take your time like that but I haven't really got a choice+__.
 [Scene 28 __
 O- Okay! ... I gotta get out of the building first, just stay with me.+__
 *You hear the person’s footsteps echoing through the supermarket*+__
-This place is huge, you don’t realize that until the mall’s empty.+ Just, what happened he- +__
-...+_
+This place is huge, you don’t realize that until the mall’s empty.+ Just, what happened he-+__
+...+__
 I hear something.+ Mechanical screeching kind of noise.+__
 
 <(29)1 - Sounds dangerous. Can’t you just go back?__
@@ -346,7 +346,7 @@ WOOAAH SHI- *THUMP*+__
 ...+__
 ...+__
 
-<(37)1 - Are you hurt?! |__
+<(37)1| - Are you hurt?!__
 ]
 
 [Scene 37 __
@@ -405,7 +405,7 @@ Right, let's go!+ A good hammer is always useful, especially in the kind of situ
 *footsteps*+__
 ...Alright! Here I am.+__
 There is far less things on the shelves than what I've imagined.+__
-There is some door-wedge, packs of rusty nails..
+There is some door-wedge, packs of rusty nails..__
 
 <(47)1 - Do you see anything else?__
 ]
@@ -626,7 +626,7 @@ It seems locked by some kind of electrical mechanism that leads to this control 
 ]
 
 [Scene 66 __
-I don't know, but it's our only lead for now, so I'll make it my main objective from now on!+_
+I don't know, but it's our only lead for now, so I'll make it my main objective from now on!+__
 ...+I don't know where to start now...+__
 
 <(72)1 - Maybe check what's around?__

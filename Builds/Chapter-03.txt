@@ -475,7 +475,7 @@ I’M SURE YOU CAN TRACK ME WITH THIS PHONE!+__
 ]
 
 [Scene 49 __
-The exit door?+ It's right here but it was locked anyw-...+
+The exit door?+ It's right here but it was locked anyw-...+__
 You got to be kidding me...+__
 ...+The door...+ It has been broke down...+ Now it's wide open.+__
 I-It means someone kicked it down while I was inside the glass enclosure...+__
@@ -702,7 +702,7 @@ NO, I'M SCARED, I WANT TO GET OUT OF HERE!+__
 ]
 
 [Scene 73 __
-Their face.+ They look dismorphed...
+Their face.+ They look dismorphed...__
 ...W-What?...+ It's impossible...+__
 ...+Why do they have the same clothes, the same body traits as...+ me?+ WHY DO THEY LOOK LIKE ME?!+__
 It's just a nightmare oh my god+__
@@ -985,7 +985,7 @@ Wait, wait, wait, wait...+ No please don't hurt me...+ We're the same, we can es
 
 [Scene 101 \__
 W-What?+__
-*""NOW YOU'LL HAVE TO PAY FOR ALL THESE FEELINGS THAT TORTURED ME!!!""*+__
+*"NOW YOU'LL HAVE TO PAY FOR ALL THESE FEELINGS THAT TORTURED ME!!!"*+__
 Oh no, NO PLEA-urk!...+__
 ...+__
 
@@ -1263,7 +1263,7 @@ I don't care about your "check this, check that" now.+ I'M FREE TO GO!+__
 ]
 
 [Scene 131 __
-Oh come on!+ I don't need that anymore!+
+Oh come on!+ I don't need that anymore!+__
 I'M FREE-*click*+__
 &You thought you could escape me, huh?+ Well too bad, but I'm going to have to replace you.=+__
 
@@ -1295,7 +1295,7 @@ Don't tell me you-*BANG*...+__
 ...+__
 --SIGNAL LOST--+__
 &{HE CAUGHT YOU. YOU COULDN'T BE TRUSTED.}=+__
-&SHOT BY HIM ENDING=
+&SHOT BY HIM ENDING=__
 
 <$03/50\1 - Retry this Chapter__
 <$01/50\2 - Retry from Chapter-01__

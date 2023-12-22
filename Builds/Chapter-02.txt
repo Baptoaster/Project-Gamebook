@@ -10,7 +10,7 @@ This whole trapdoor thing is supicious anyway.+ It might be better to explore th
 It's not that far away, I think I can even see it from here!+ I'll take you back in a second when I'll be there!+__
 .+.+.+__
 .+.+.+__
-Okay!+ I'm in front of it.+ It's smaller than I thought, and it looks really well preserved!
+Okay!+ I'm in front of it.+ It's smaller than I thought, and it looks really well preserved!__
 
 <(3)1 - Small?__
 <(4)2 - Well preserved?__
@@ -803,12 +803,12 @@ LET ME OUT, THIS FUCKER LOCKED THE DOOR!+__
 ]
 
 [Scene 92 )__
-"...+__
+...+__
 &Remember.+ One died so that billions live.=+__
 ...+__
 --SIGNAL LOST--+__
 &{YOU CHOSE TO BLIND YOURSELF FROM THE TRUTH. BUT COULD YOU SAVE EVERYONE?}=+__
-&CORNERED ENDING=+__"
+&CORNERED ENDING=+__
 
 <$02/75\1 - Retry this Chapter__
 <$01/50\2 - Retry from Chapter-01__
@@ -933,7 +933,7 @@ One more thing.+ Can I talk one last time with the original?+__
 ]
 
 [Scene 104 __
-You bet it was!+ That's unfortunate that we have to end on this ""save the humanity"" tone...+__
+You bet it was!+ That's unfortunate that we have to end on this "save the humanity" tone...+__
 But I guess we can't do anything about it.+__
 The world chose you to be immune.+ And by you, that includes me...+__
 
